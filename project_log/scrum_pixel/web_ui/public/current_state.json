@@ -1,0 +1,88 @@
+{
+  "agents": [
+    {
+      "id": "007_web_ui_xslt_ou_xml",
+      "summary": "Web UI for XSLT to Interactive Markdown",
+      "role": "Developer",
+      "status": "Backlog",
+      "priority": "High"
+    },
+    {
+      "id": "010_scrum_statistics_ui",
+      "summary": "Develop Scrum Statistics UI Button",
+      "role": "Developer",
+      "status": "Backlog",
+      "priority": "Medium"
+    },
+    {
+      "id": "000_dissertation_mission_statement",
+      "summary": "Graduation Capstone & Dissertation Mission Statement",
+      "role": "Stakeholder",
+      "status": "Done",
+      "priority": "Critical"
+    },
+    {
+      "id": "009_scrum_pixel_prototype",
+      "summary": "Develop Scrum Pixel Visualization Prototype",
+      "role": "Developer",
+      "status": "Backlog",
+      "priority": "Medium"
+    },
+    {
+      "id": "002_define_requirements",
+      "summary": "Define Project Requirements",
+      "role": "Scrum Master",
+      "status": "Done",
+      "priority": "High"
+    },
+    {
+      "id": "003_scrum_concepts_doc",
+      "summary": "Document Scrum Methodology Concepts",
+      "role": "Scrum Master",
+      "status": "Done",
+      "priority": "Medium"
+    },
+    {
+      "id": "004_github_setup",
+      "summary": "Add project to remote GitHub repository",
+      "role": "Developer",
+      "status": "Done",
+      "priority": "High"
+    },
+    {
+      "id": "005_scrummd_expert_skill",
+      "summary": "Document ScrumMD Expert Skill creation",
+      "role": "Developer",
+      "status": "Done",
+      "priority": "Medium"
+    },
+    {
+      "id": "001_project_setup",
+      "summary": "Initial Project Setup",
+      "role": "Scrum Master",
+      "status": "Done",
+      "priority": "High"
+    },
+    {
+      "id": "006_oer_ou_xml_research",
+      "summary": "Research OU-XML for OER Documentation",
+      "role": "Researcher",
+      "status": "Done",
+      "priority": "Medium"
+    },
+    {
+      "id": "008_integrate_scrummd",
+      "summary": "Integrate ScrumMD Improvements and Workflow",
+      "role": "Scrum Master",
+      "status": "Done",
+      "priority": "High"
+    },
+    {
+      "id": "011_organize_academic_resources",
+      "summary": "Organize Academic Resources & Review Tutor Marks",
+      "role": "Stakeholder",
+      "status": "In Progress",
+      "priority": "High"
+    }
+  ]
+}

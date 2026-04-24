@@ -1,0 +1,101 @@
+:root {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.scrum-office {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background: #2a2a2a;
+  border: 4px solid #444;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.agent-character {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-sprite {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.character-label {
+  font-size: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.character-status {
+  font-size: 6px;
+  color: #aaa;
+}
+
+/* Animations */
+@keyframes idle {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0% {
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: scaleX(1.1);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.status-in-progress .character-sprite {
+  animation: typing 0.2s infinite;
+}
+
+.status-done .character-sprite {
+  animation: idle 2s infinite;
+}
+
+.status-backlog {
+  opacity: 0.5;
+}
