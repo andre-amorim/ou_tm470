@@ -50,8 +50,23 @@ All commands must be run via `uv run` within the `project_log` directory:
 
 ## Core Mandates for Gemini CLI
 
+### 🛡️ Core Project Pillars
+All work, research, and documentation must strictly align with these three pillars:
+1.  **Primary Subject: Software Reproducibility.** The project's core technical innovation is solving the "reproducibility gap" using Nix and functional environment management. It is an Infrastructure as Code (IaC) project.
+2.  **Primary Outcomes: Didactic Laboratory & OER.** The final deliverables are a functional, hermetic laboratory (Nix/uv) and a structured tutorial in the OU-XML (OpenLearn) format.
+3.  **Primary Context: Bitcoin/LNbits.** Bitcoin is the contextual lens and high-stakes environment used to demonstrate universal reproducibility principles. The project is *about* reproducibility, *using* Bitcoin as the case study.
+
 - **Traceability:** Always link project-related code changes or research findings to the corresponding Scrum card in `project_log/scrum`.
 - **Validation:** When modifying the project log (markdown cards in `scrum/`), always run `uv run svalid` to ensure metadata integrity.
 - **Nix Integration:** Prefer using the provided Nix flakes for tool execution and environment setup.
 - **Research focus:** Maintain focus on the OER and OU-XML research objectives defined in the backlog.
 - **Dendritic Structure:** Respect the modular, dendritic structure of the Nix flake in `project_log`.
+
+## 🏛️ Memory Architecture (MemPalace)
+- **Tooling:** Managed via `Nix` and `uv` in `~/gemini-mempalace-bridge/`.
+- **Database:** Local vector store and knowledge graph at `~/.mempalace/`.
+- **Workflow:**
+  - **Wake-up:** Run `uv --directory ~/gemini-mempalace-bridge run python -m mempalace --palace ~/.mempalace/palace status` at session start.
+  - **Decision Log:** Use `mcp_mempalace_add_project_decision` to record academic or technical milestones.
+  - **Diary:** End sessions with `~/gemini-mempalace-bridge/scripts/2mempalace mine sessions/` to capture reflective practice (LO5).
+- **Academic Sync:** Use the `memory-recall` skill patterns to bridge technical work with dissertation narratives.
