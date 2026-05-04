@@ -1,6 +1,6 @@
-# OU TM470 Project Log
+# 🔄 OU TM470 Agile Orchestration (Project Log)
 
-This directory serves as the official **Project Log** for the OU TM470 module. It uses an **Incremental Software Development Lifecycle (SDLC)** following the **Agile Scrum** methodology.
+This repository serves as the official **Project Log** for the OU TM470 module. It is part of the **[nixB Project Ecosystem](https://github.com/andre-amorim/ou_tm470)**.
 
 ## Goals
 - **Traceability:** Maintain a machine-readable log of all project decisions, tasks, and increments.

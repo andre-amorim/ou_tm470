@@ -6,3 +6,5 @@
 - [2026-04-22 13:09] BAPTISM: The Nostr Envoy (GMN-NOSTR) is officially named 'struthio'. Its Sovereign Identity is established as 'struthio@nixb.org' for NIP-05 verification. This name links the Nostr Ostrich mascot (Struthio camelus) with the agent's academic role in the TM470 dissertation.
 
 - [2026-04-23 08:59] GREAT FIREWALL: Separated TM470 (Academic) from iDigital Systems (Personal) workflow. Initialized second Scrum board at ~/idigital_systems/scrum/ with custom agentic roles. Updated 'Wake-up Protocol' in SKILL.md to require a dual-track Morning Report starting each session.
+
+- [2026-05-03 07:14] Re-prioritized TMA02 review and submission to 'High' and LNbits integration (012) to 'Low' to align with imminent TMA02 academic cutoff. LNbits is now formally scoped for the TMA03 development phase.

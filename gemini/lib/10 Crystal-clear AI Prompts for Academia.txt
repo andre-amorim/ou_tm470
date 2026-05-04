@@ -1,0 +1,393 @@
+Transcript Generated for Free by youtranscripts.com
+==========================================================
+
+Title: 10 Crystal-clear AI Prompts for Academia [Simple copy and paste]
+=======================================================================
+
+Generated on: 04/05/2026, 07:18:56
+
+here are 10 really perfect prompts for
+you to use if you are in Academia or
+research you can use these in chat GPT
+perplexity Claude wherever you want to
+use it and the first one is this as an
+
+academic paper writing assistant your
+task is to help users structure their
+scholarly paper efficiently so this is
+about making a structure from which you
+can build upon now when we are faced
+
+with like a blank piece of paper or a
+blank Word document it can be very
+confronting to have to come up with
+words this is a way of creating that so
+here I say create an outline about a
+
+peer- reviewed paper on and then you can
+insert your own thing here and then it
+says here is a structured outline so you
+can see it gives you the title the
+abstract and it also gives you these
+
+bullet points of things you can actually
+include background and literature review
+material requirements blah blah blah it
+goes on and on and on and this is how
+you can start strong no matter what you
+
+are writing the more information you can
+give it up front about what you are
+writing and what you want it to become
+the better so there's the first one and
+importantly with all of these the first
+
+thing is the context
+context where you have to say to the GPT
+okay this is essentially who you are and
+what you are that is how you are going
+to help me you'll see that throughout
+
+all of these prompts the next one is
+particularly powerful so you'll see that
+I uploaded these figures this is on chat
+gp4 so this is where I have paid money
+my hard-earned internet money to use
+
+this tool and so I've uploaded five
+figures and then I've use this as an
+academic paper writing assistant that's
+to them guide users leveraging figures
+to create structures in their research
+
+paper take the figures attached and
+create a narrative for this paper and
+you can see that it has done exactly
+that it does know these figures look
+it's amazing it gets all of this
+
+information from inside these figures
+and it starts saying well here's a
+potential narrative if you don't know if
+you've got a complete narrative for a
+peer-reviewed paper put the figures
+
+which is where I always start into
+something like chat GPT vision and it
+will tell you whether or not you've got
+a complete actual story that you can
+tell you'll be surprised actually at the
+
+game of Academia you can tell research
+stories and create papers far sooner
+than a lot of people really realize so
+use this and this prompt with the
+figures that you've created to see if
+
+you can write a paper right now start
+today coming up with titles is a massive
+pain in the ass cuz you want it to be
+attractive enough you want it to show
+the novelty so you can ask it to help
+
+you here we are we've got this one as a
+title evaluation assistant for academic
+papers your task is to assess the
+effectiveness of a paper blah blah blah
+when a user submits a title Begin by
+
+evaluating the clarity relevant to
+content and importantly it gives you a
+number feedback so it says rate each of
+these criteria on a scale of 1 to 2.5
+leading to a total score of 10 provide
+
+feedback for each Criterion and uh
+highlighting strengths and suggesting
+all of that sort of stuff so I put in my
+number one cited paper and it's this one
+the accurate thickness measurement of
+
+graph and you can see that Clarity you
+can't get much better than that it is
+succinct and clear originality maybe not
+so good down here 1.5 so if there's
+loads of papers out there with this
+
+title or very something very similar
+it's hard to stand out that's why people
+normally inject novelty into their
+titles and then ability to engage the
+intended audience another 1.5 so it
+
+tells me that if I'm struggling to get
+this paper noticed or I want it to be
+even more impactful I could include
+these sort of things and you can even go
+on and say provide some examples of
+
+paper titles that improve on this one it
+will give you sort of like five examples
+and you can pick and choose the parts of
+the titles that you like and mash it all
+together into a mega title love that
+
+here's the next one something that chat
+GPT and a lot of large language models
+do incredibly well is analyze text and
+you can tell it too look at your
+potential peer-reviewed papers that
+
+you're submitting and give you feedback
+so here we got a uh prompt that starts
+with as an academic peer review
+assistant Your Role is to provide
+thorough and constructive review of
+
+submitted academic papers and so I tell
+it to go through all of this and by the
+way all of these prompts are in either
+the comment if I can fit it or it's on a
+document linked that you can get so you
+
+can copy and paste them into any large
+language model that you are using but I
+want it to check for all of these things
+which is great and then at the end I
+have to include this wait for me to give
+
+you you the information because if you
+don't do that sometimes chat GPT and
+other large language models just start
+trying to please you like oh please sir
+please love me and they just give you
+
+all of the wrong information but now you
+just say wait for me to give you the
+information and it says here absolutely
+I'm ready to help you with the peer
+review process and then here I've got
+
+this is the introduction to a paper I'm
+writing and I put it in and then as you
+can see it says down here content
+accuracy and relevance
+argumentation yes and Analysis
+
+methodology and it ALS gives me all of
+these suggestions for improvement really
+great and you can use this go backwards
+and forwards and it's the first touch
+point to a paper before you send it to
+
+like the editor or even your supervisor
+for checkin send it through something
+like this so you can just avoid that
+long weight of your supervisor just
+having it on their desk for months and
+
+you're going like come on just read the
+bloody paper now you can skip that step
+use this working with text that you have
+already created is a strength of life
+large language models so you can use
+
+prompts to extract stuff to manipulate
+things here are my three favorites the
+first one is this you're an expert
+research assistant and you always start
+with context of how you want it to act
+
+because it just sits there and it goes
+oh yeah I'm a perfect research assistant
+brilliant um and then it says from the
+submitted peer reviewed paper text
+please uh create 10 keywords that best
+
+represent the paper so when you're
+submitting your paper for peer review
+quite often they ask you for all of this
+extra information keep words summaries
+and you just need to go in here and just
+
+ask it to use the paper you provided to
+extract the most important keywords it's
+super easy saves that brain power for
+something actually useful rather than
+those silly uh keyword lists another one
+
+is this you're an expert research
+assistant again create a short summary
+of this peer-reviewed paper and you can
+swap that out to say create a Layman
+summary or whatever the um Journal is
+
+asking you to fill in a little box you
+can just say create a short summary of
+this peer-reviewed paper stop um using
+your valuable academic time to reinvent
+texts you've already written that's what
+
+large language models absolutely excel
+at and the last one in this vein is a
+two-stepper where we are saying create
+an abstract for This research paper so
+you are an expert research assistant
+
+again um create an abstract for this
+peer-reviewed paper and then I would
+copy that into chat GPT and I'd allow it
+to come up with an abstract that uh you
+know it thinks is suitable but the
+
+problem is abstracts aren't all the same
+across multiple fields in Academia so
+you can then back it up the second
+prompt I would use is use these examples
+from other papers to help refine the
+
+structure and then I'd put in like
+example one from the journal that I'm
+targeting sample two from the journal
+that I'm targeting and then together it
+will actually create a much stronger
+
+more coherent abstract and this two-part
+process really helps hone that uh
+perfect abstract for your paper when you
+enter Academia you realize that every
+time you need to do something you need
+
+to send an email so I created this
+prompt which just allows me to uh create
+quick emails in the appropriate tone and
+it's like an email generator and the
+prompt starts with how it should act as
+
+an academic email writing assistant Your
+Role is to help users craft professional
+and effective emails to to their
+principal supervisors in Academia Begin
+by guiding the user to clear and then
+
+it's got all of the stuff it should do
+so down here the last thing I say is ask
+me the questions you need to write this
+email because otherwise it just starts
+giving you advice so it says sure I can
+
+craft the effective email let's start by
+clarifying A few key details and it's
+got four questions it needs me to answer
+purpose of email relationship with a
+supervisor specific details needed and
+
+desired outcome and I put it down here I
+just copied and pasted this and uh you
+know purpose of email comma they've been
+looking oh the
+love been looking at my thesis for the
+
+last 3 months and I need it back now
+your relationship with the supervisor
+tense relationship and then specific
+details none a desired outcome I get my
+thesis back with corrections and then as
+
+you can see here it gives me subject
+lines it gives me how to start the
+introduction the body and the conclusion
+it's just a really great way if you're
+double guessing about how you should uh
+
+speak to a principal supervisor or you
+know an academic that you need to send
+an email to this email generator really
+does work and you know it really does
+help that little bit of anxiety you
+
+don't want to hassle people but
+sometimes you do just need to get in
+their email inbox this is how you do it
+love it the last one I think you should
+know about is this it's a simplification
+
+assistant that I created this little
+tiny prompt for absolutely love it and
+it says here as an academic
+simplification assistant your task is to
+help users explain complex academic
+
+papers in a manner accessible to
+14-year-old audience now where did I get
+this 14-year-old like an educated
+14-year-old is really where I think a
+lot of really great science
+
+communication happens and so you can
+reduce that number if you want but for
+me that's the sweet spot where it's
+detailed enough that it's not like baby
+fying the language but it's not so
+
+complicated that it starts getting into
+you know really complicated a level or
+above type things so here it says Begin
+by advising the user to First understand
+The Core Concepts and then once again
+
+I've got this wait for me to give you
+the content I need explaining and then
+it says that saying it's a great plan
+once you provide the context so here I
+put in an abstract from one of my papers
+
+and you can see down here chat GPT
+kicked out this why use waterbased
+polymer um nanop particles it gives me
+the understanding problems with older
+methods what's new in this paper
+
+conclusion so this little tiny thing
+just helps me understand the paper
+properly and if you're in Academia
+reading loads of papers all the time I
+highly recommend you use something like
+
+this put it into chat GPT or your
+favorite large language model and it
+will help you understand without having
+to use all that brain power um you can
+put that towards something useful like
+
+generating your own data and finishing
+your godamn PhD now if you like the
+prompts in this video I highly recommend
+that you save them to something like
+text blazs text blazs is perfect for
+
+creating shortcuts so you don't need to
+Ty or copy and paste all these things
+all the time this is mine and I use it
+all the time this is chat GPT file and
+this is all the things I regularly do in
+
+chat GPT I'm learning Persian I have to
+put that in an deck then I've got
+descriptions I've got lessons I've got
+shorts I've got all of these things I
+regularly do and I need uh chat GPT to
+
+you know have that prompt initial prompt
+and I'm fed up of copying and pasting it
+and typing out use text play super easy
+and quick if you like this video go
+check out this one where I talk about
+
+the Epic chat GPT prompts for research
+you won't regret
+it e
+
+
+==========================================================
+Generated by youtranscripts.com - Free YouTube Transcript Tool
