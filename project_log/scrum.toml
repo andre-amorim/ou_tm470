@@ -33,6 +33,7 @@ role = ["Scrum Master", "Developer", "Researcher", "Tester", "Stakeholder"]
 # Configuration for 'sbl' (Scrum Backlog)
 [tool.scrummd.sbl]
 columns = ["index", "summary", "status", "points", "priority"]
+default_group_by = "status"
 
 # Configuration for 'sboard' (Scrum Board)
 [tool.scrummd.sboard]
