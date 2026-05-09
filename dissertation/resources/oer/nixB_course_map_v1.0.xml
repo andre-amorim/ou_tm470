@@ -9,7 +9,7 @@
             <Paragraph>After studying this course, you should be able to:</Paragraph>
             <LearningOutcome>LO1 (Knowledge): Critically analyze the systemic failure modes of imperative software environments (e.g., Configuration Drift and Dependency Hell).</LearningOutcome>
             <LearningOutcome>LO2 (Analysis): Evaluate the "Mental Model" gap in software development using Donella Meadows’ systems thinking.</LearningOutcome>
-            <LearningOutcome>LO3 (Application): Construct a deterministic, reproducible development environment using Nix flakes and the `uv` Python toolchain.</LearningOutcome>
+            <LearningOutcome>LO3 (Application): Construct a deterministic, reproducible development environment using Nix flakes to ensure environment parity across heterogeneous hardware.</LearningOutcome>
             <LearningOutcome>LO4 (Synthesis): Orchestrate a local infrastructure stack (Bitcoin/Lightning) as version-controlled code.</LearningOutcome>
             <LearningOutcome>LO5 (Evaluation): Verify the fidelity of a software reproduction through automated infrastructure testing.</LearningOutcome>
         </LearningOutcomes>
@@ -57,5 +57,8 @@
                 </MediaContent>
             </Section>
         </Session>
+    </Unit>
+</Item>
+ion>
     </Unit>
 </Item>

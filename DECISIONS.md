@@ -30,3 +30,14 @@
 - [2026-05-04 08:00] Implemented the 'academic-writing-coach' Gemini CLI skill, integrating Dr. Andy Stapleton's academic prompting strategies (Breadcrumb method, simulated peer review, Stapleton Protocol). This skill serves as the primary 'Academic Translation Layer' for the OU TM470 project, mapping technical technical implementation (Nix, Bitcoin, Scrum) into scholarly narratives.
 
 - [2026-05-04 08:44] Refactored the TMA02 submission draft (v3.1) to address previous tutor feedback (LO1 technical focus, LO3 resource appendix, Section 3 lifecycle diagram). Integrated the 'Stapleton Protocol' for academic tone and incorporated the 'Cloud-to-Local Migration' as a formal technical case study of software reproducibility. The draft now aligns with both OU academic standards and the project's 'Technology' pillar.
+
+- [2026-05-05 07:02] TMA02 draft v3.1 uploaded to Google Drive as Google Doc for final review; confirmed .docx as mandatory final submission format.
+
+- [2026-05-05 16:46] [2026-05-05 16:40] FINALIZED AND SUBMITTED TMA02. Successfully translated technical Nix/LNbits infrastructure wins into academic evaluation (LO4, LO5, LO6, LO7, LO9). Key actions included: 1) Adding an explicit Change Log for TMA01->TMA02 progression. 2) Professionalizing Sprint 3 logs (replacing 'Great Firewall' with 'Academic Workflow Isolation'). 3) Framing the private GitHub repository as a deliberate 'Academic Integrity' and 'Code Accessibility' choice, while providing clear Nix reproduction steps for the tutor. 4) 
+Converted final PDF to .docx according to OU submission guidelines. Saved in dissertation/resources/tm002/final_submission/TM470_TMA02_Andre_Amorim_PI-A5624864.docx.
+
+- [2026-05-06 11:45] Pedagogical Alignment: Mapped OBC Startup Fund mechanics to nixB OER design (Activity-to-Asset pattern).
+
+- [2026-05-08 08:58] [2026-05-08] TUTOR REASSIGNMENT RESOLVED. Dr. Alexis Lansbury confirmed Bill Tait (bill.tait@open.ac.uk) as the new TM470 tutor. Bill Tait was previously the user's tutor for TM354 (Software Engineering), providing high continuity and alignment with the project's software engineering focus. Card 016 moved to DONE. TMA01/TMA02 forwarded to Bill Tait. Strategy: Continuity and Professional Engagement.
+
+- [2026-05-08 09:26] [2026-05-08] ACADEMIC SYNTHESIS: Integrated Bill Tait's (1997) "Object Orientation in Educational Software" into the project's didactic foundation. Tait's model of modular, encapsulated educational objects provides the theoretical justification for the nixB laboratory's use of Nix flakes to bundle content (code/env) and process (reproducibility). This alignment will be explicitly cited in the dissertation (LO5/LO9) to demonstrate pedagogical depth and stakeholder continuity.

@@ -14,16 +14,22 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
+            bitcoin
+            clightning
             python312Packages.python
             uv
             git
             sqlite
+            mermaid-cli
+            pandoc
+            tectonic
           ];
           shellHook = ''
             echo "--- nixB Didactic Laboratory ---"
-            echo "Python: $(python --version)"
-            echo "uv: $(uv --version)"
+            echo "Bitcoin Core: $(bitcoind --version | head -n 1)"
+            echo "C-Lightning: $(lightningd --version)"
             echo "--------------------------------"
+            echo "Run './start_lab.sh' to initialize the regtest environment."
           '';
         };
       }

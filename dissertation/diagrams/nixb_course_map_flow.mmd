@@ -1,28 +1,43 @@
-graph TD
-    subgraph Core [nixB Didactic Laboratory: Course Map]
-        U1[Unit 1: The Reproducibility Gap] --> U2[Unit 2: Declarative Foundations]
-        U2 --> U3[Unit 3: Local Infrastructure]
-        U3 --> U4[Unit 4: Verification & Reflection]
+graph LR
+    %% Unit 1: The Gap
+    subgraph Unit1 [Unit 1: The Reproducibility Gap]
+        U1[<b>Analysis</b><br/>Critically Analyze Failure Modes]
+        M1((Infographic))
     end
 
-    subgraph Outcomes [Learning Outcomes]
-        U1 --> LO1[LO1: Critically Analyze Failure Modes]
-        U1 --> LO2[LO2: Evaluate Mental Model Gaps]
-        U2 --> LO3[LO3: Construct Reproducible Envs]
-        U3 --> LO4[LO4: Orchestrate IaC Stacks]
-        U4 --> LO5[LO5: Verify Reproduction Fidelity]
+    %% Unit 2: Foundations
+    subgraph Unit2 [Unit 2: Declarative Foundations]
+        U2[<b>Mental Models</b><br/>Evaluate Mental Model Gaps]
+        M2((Explainer Video))
     end
 
-    %% Multimedia Indicators
-    U1 -.-> M1((Infographic))
-    U2 -.-> M2((Explainer Video))
-    U3 -.-> M3((Technical Blueprint))
-    U4 -.-> M4((Audio Overview))
+    %% Unit 3: Infrastructure
+    subgraph Unit3 [Unit 3: Local Infrastructure]
+        U3[<b>Implementation</b><br/>Construct Reproducible Envs]
+        M3((Technical Blueprint))
+    end
 
-    classDef unit fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef outcome fill:#bbf,stroke:#333,stroke-width:1px;
-    classDef multi fill:#bfb,stroke:#333,stroke-dasharray: 5 5;
+    %% Unit 4: Reflection
+    subgraph Unit4 [Unit 4: Verification & Reflection]
+        U4[<b>Verification</b><br/>Verify Reproduction Fidelity]
+        M4((Audio Overview))
+    end
+
+    %% Flow and Dependencies
+    U1 --> U2
+    U2 --> U3
+    U3 --> U4
+
+    %% Multimedia Linkage
+    U1 --- M1
+    U2 --- M2
+    U3 --- M3
+    U4 --- M4
+
+    %% Styling
+    classDef unit fill:#f0f4ff,stroke:#5c7cfa,stroke-width:2px,color:#2b3e50;
+    classDef multimedia fill:#e7f5ff,stroke:#228be6,stroke-dasharray: 5 5,color:#1864ab;
+    classDef header font-weight:bold,font-size:16px;
 
     class U1,U2,U3,U4 unit;
-    class LO1,LO2,LO3,LO4,LO5 outcome;
-    class M1,M2,M3,M4 multi;
+    class M1,M2,M3,M4 multimedia;

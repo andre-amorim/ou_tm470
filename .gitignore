@@ -1,0 +1,37 @@
+# nixB Monorepo: Global Ignore Rules
+
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 🏰 nixB Technical Data (Local Regtest)
+lab/data/bitcoin-regtest/
+lab/data/cln-regtest/
+lab/data/logs/
+
+# 🤖 AI Scaffolding (Private Session Data)
+GEMINI.md
+entities.json
+mempalace.yaml
+download.html
+.mempalace/
+github-token.txt
+
+# 🔄 Project Log & Temporary
+*.bak
+*.tmp
+*.log
+project_log/daily_summary_*.txt
+project_log/reconstructed_*.txt
+project_log/scrum_tutorial_audiobook.txt
+
+# 🎨 System
+.DS_Store
+Thumbs.db
+.direnv/
+.envrc
