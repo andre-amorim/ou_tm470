@@ -43,3 +43,9 @@ Converted final PDF to .docx according to OU submission guidelines. Saved in dis
 - [2026-05-08 09:26] [2026-05-08] ACADEMIC SYNTHESIS: Integrated Bill Tait's (1997) "Object Orientation in Educational Software" into the project's didactic foundation. Tait's model of modular, encapsulated educational objects provides the theoretical justification for the nixB laboratory's use of Nix flakes to bundle content (code/env) and process (reproducibility). This alignment will be explicitly cited in the dissertation (LO5/LO9) to demonstrate pedagogical depth and stakeholder continuity.
 
 - [2026-05-09 09:12] [2026-05-09 12:00] Performed 'Professional Polish' cleanse of the ou_tm470 monorepo. Moved AI scaffolding and copyrighted third-party resources (textbooks, research papers, large media) to a private external vault to ensure legal safety and repository cleanliness for public release. Aligned repo documentation with the 'Tait Synthesis' (Object Orientation).
+
+- [2026-05-11 14:18] Implemented 'Three-Tier Privacy Strategy' for the TM470 monorepo. 
+- Tier 1 (Public/Academic): Anonymized TMA filenames (removed PI) and retained refined academic content in `dissertation/resources/`.
+- Tier 2 (Local/Admin): Created git-ignored `.administrative/` folder for email drafts, tutor communications, and raw feedback.
+- Tier 3 (Archival): Moved bulky binaries (ZIPs, GIFs) to the local ignored folder to reduce repo bloat.
+This enforces the 'Great Firewall' principle, ensuring a professional, public-ready repository for tutor review and future OER release.
