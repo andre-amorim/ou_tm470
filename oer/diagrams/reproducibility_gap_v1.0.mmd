@@ -1,0 +1,17 @@
+graph TD
+    subgraph Imperative_Mental_Model [Imperative Mental Model: The Jenga Tower]
+        A[User Actions] -->|Step 1: sudo apt install| B(Stateful OS)
+        B -->|Step 2: manually edit config| C(Mutation)
+        C -->|Step 3: install another tool| D{Configuration Drift}
+        D -->|Failure| E[Dependency Hell / It works on my machine]
+    end
+
+    subgraph Declarative_Mental_Model [Declarative Mental Model: The Blueprint]
+        F[flake.nix] -->|Input: Hashed Source| G(Pure Function)
+        G -->|Output: Immutable Binary| H(Nix Store)
+        H -->|Hermetic Environment| I[Absolute Reproducibility]
+    end
+
+    E -.->|The Gap| F
+    style E fill:#f96,stroke:#333,stroke-width:2px
+    style I fill:#9f6,stroke:#333,stroke-width:2px

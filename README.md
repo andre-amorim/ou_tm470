@@ -5,21 +5,29 @@ Welcome to the **nixB** project repository. This is the single entry point for t
 ## 🗺️ Navigation Map
 The project is architected as a "Sociotechnical Ecosystem" consolidated into this monorepo for maximum traceability and professional orchestration.
 
-### 1. 🎓 [Dissertation & OER](./dissertation/)
+### 1. 🎓 [Dissertation](./dissertation/)
 *   **Path:** `./dissertation/`
 *   **Contents:** 
-    *   `resources/`: Iterative drafts (TMA01, TMA02, etc.) and the **OU-XML Course Map**.
+    *   `resources/`: Iterative drafts (TMA01, TMA02, etc.).
     *   `diagrams/`: Technical architecture and sociotechnical (TOP) models.
-*   **Goal:** Academic translation and didactic design.
+*   **Goal:** Academic translation and reflective narrative.
 
-### 2. 🧪 [The Laboratory](./lab/)
+### 2. 📖 [OER Course Content](./oer/)
+*   **Path:** `./oer/`
+*   **Contents:** 
+    *   `ou-xml/`: The official OU-XML source files for Units 1 and 2.
+    *   `preview.sh`: Live-preview pipeline (XML → MyST Markdown → HTML).
+    *   `flake.nix`: Reproducible OER development environment.
+*   **Goal:** Delivering the "nixB" Open Educational Resource using a Nix-managed toolchain.
+
+### 3. 🧪 [The Didactic Laboratory](./lab/)
 *   **Path:** `./lab/`
 *   **Contents:** 
-    *   `flake.nix`: The declarative Infrastructure as Code (IaC) foundation.
-    *   `lnbits-core/`: The Bitcoin/Lightning stack integrated as a submodule.
+    *   `flake.nix`: Declarative Infrastructure as Code (IaC).
+    *   `lnbits-core/`: Bitcoin/Lightning stack integrated via Nix.
 *   **Goal:** Empirical proof of 100% software reproducibility (LO5).
 
-### 3. 🔄 [Agile Orchestration](./project_log/)
+### 4. 🔄 [Agile Orchestration](./project_log/)
 *   **Path:** `./project_log/`
 *   **Contents:** 
     *   `scrum/`: Machine-readable backlog and sprint logs using `scrummd`.

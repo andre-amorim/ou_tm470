@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <Unit>
+        <UnitID>nixB-U2</UnitID>
+        <UnitTitle>Unit 2: The Practice Object – Constructing the Blueprint</UnitTitle>
+        <Session>
+            <Title>2.1 From Chaos to Order: The Hierarchical Mental Model</Title>
+            <Section>
+                <Title>Thinking in Objects</Title>
+                <Paragraph>In Unit 1, we identified the "Jenga Tower" of manual installations. Now, we move to the solution: <Shareders>The Declarative Hierarchy</Shareders>.</Paragraph>
+                <Paragraph>Think of your development environment not as a list of actions, but as a set of <GlossaryTerm>Educational Objects</GlossaryTerm> (Tait, 1997). In Unit 2, we introduce two tools that work together to create a perfectly reproducible stack:</Paragraph>
+                <BulletedList>
+                    <ListItem><Shareders>Nix:</Shareders> The "System Foundation" that manages binary dependencies.</ListItem>
+                    <ListItem><Shareders>uv:</Shareders> The "Project Specialist" that manages Python-specific libraries.</ListItem>
+                </BulletedList>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>2.2 Nix Flakes: The Hermetic Seal</Title>
+            <Section>
+                <Title>Deterministic Blueprints</Title>
+                <Paragraph>A <Shareders>Nix Flake</Shareders> (<ComputerCode>flake.nix</ComputerCode>) is your master blueprint. It specifies exactly which "Inputs" (sources of code) you are using and what "Outputs" (development shells or applications) you want to build.</Paragraph>
+                <Box type="Key Point">
+                    <Heading>The Power of the Lockfile</Heading>
+                    <Paragraph>When you run a Nix flake, it generates a <ComputerCode>flake.lock</ComputerCode>. This file contains the exact cryptographic hash of every dependency. If you share your flake with a colleague in 10 years, they will get the exact same bits, byte-for-byte.</Paragraph>
+                </Box>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>2.3 uv: The Fast Python Handshake</Title>
+            <Section>
+                <Title>Isolated Environments</Title>
+                <Paragraph>While Nix handles the heavy lifting of system libraries (like <ComputerCode>openssl</ComputerCode> or <ComputerCode>libsqlite3</ComputerCode>), we use <Shareders>uv</Shareders> to manage our Python packages.</Paragraph>
+                <MediaContent src="declarative_hierarchy_blueprint.png" type="image">
+                    <Caption>Figure 1: The Declarative Hierarchy (Nix and uv)</Caption>
+                    <Description>A 3D isometric stack showing the host system foundation, the Nix Flake layer, and the nested uv Python environment.</Description>
+                </MediaContent>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>Practice Activity: The Reproducible Hello World</Title>
+            <Section>
+                <Activity>
+                    <Heading>Hands-on Object</Heading>
+                    <Question>
+                        <Paragraph>1. Use the provided template to initialize your first Nix/uv project.</Paragraph>
+                        <Paragraph>2. Add a dependency (e.g., <ComputerCode>requests</ComputerCode>) using <ComputerCode>uv add</ComputerCode>.</Paragraph>
+                        <Paragraph>3. Share the <ComputerCode>flake.nix</ComputerCode> and <ComputerCode>uv.lock</ComputerCode> with a teammate. Can they run your script without installing anything manually?</Paragraph>
+                    </Question>
+                </Activity>
+                <Paragraph><Emphasis>Pedagogical Note: This unit facilitates "Concept Formation" by moving the learner from a sequence of events to a state of being.</Emphasis></Paragraph>
+            </Section>
+        </Session>
+    </Unit>
+</Item>

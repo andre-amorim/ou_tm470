@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <Unit>
+        <UnitID>nixB-U1</UnitID>
+        <UnitTitle>Unit 1: The Reproducibility Gap – From Chaos to Order</UnitTitle>
+        <Session>
+            <Title>1.1 The Crisis: The "It Works on My Machine" Fallacy</Title>
+            <Section>
+                <Title>The Whiteboard Metaphor</Title>
+                <Paragraph>In modern software development, we often treat our operating systems like <Shareders>whiteboards</Shareders>. We write commands, install libraries, and modify configurations. This is known as the <Emphasis>Imperative Model</Emphasis>.</Paragraph>
+                <Paragraph>The problem? Whiteboards are messy. When you install a new tool, it might overwrite a library that another tool needs. Over time, your system becomes a "Jenga Tower" of hidden dependencies. This leads to <Shareders>Configuration Drift</Shareders>: the slow, invisible divergence of your machine's state from the production server or your teammate's laptop.</Paragraph>
+                <Quote>
+                    <Paragraph>"The reference, the file path itself is opaque, and because it lacks transparency, any script or application that relies on that path is inherently non-deterministic." (Podcast Transcript, 2026)</Paragraph>
+                </Quote>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>1.2 Systems Thinking: The Mental Model Gap</Title>
+            <Section>
+                <Title>Understanding State Mutation</Title>
+                <Paragraph>Why do we keep falling into this trap? Following <Shareders>Donella Meadows (2009)</Shareders>, we can identify a "Mental Model Gap." Our minds want to believe that a command like <ComputerCode>apt install</ComputerCode> is a simple addition. In reality, it is a <Shareders>State Mutation</Shareders> with ripples across the entire system.</Paragraph>
+                <Paragraph>To solve the reproducibility gap, we must stop thinking about <Emphasis>actions</Emphasis> (what to do) and start thinking about <Emphasis>blueprints</Emphasis> (what the system should be).</Paragraph>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>1.3 The Solution: The Declarative Blueprint</Title>
+            <Section>
+                <Title>Determinism and Pure Functions</Title>
+                <Paragraph>Transitioning to a <Shareders>Declarative Model</Shareders> means moving away from a sequence of steps. Instead, we define a single source of truth: the <Shareders>Blueprint</Shareders>.</Paragraph>
+                <BulletedList>
+                    <ListItem><Shareders>Imperative:</Shareders> "Download this, then move it here, then change this line."</ListItem>
+                    <ListItem><Shareders>Declarative:</Shareders> "The system shall have this specific version of Python and this specific library, hashed and verified."</ListItem>
+                </BulletedList>
+                <Paragraph>By using <Shareders>Nix</Shareders>, we turn our environment into a <Shareders>Pure Function</Shareders>. Given the same blueprint (inputs), you will always get the exact same environment (output), mathematically eradicating the "Works on my machine" error.</Paragraph>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>Activity: The Jenga Audit</Title>
+            <Section>
+                <Activity>
+                    <Heading>Self-Reflection</Heading>
+                    <Question>
+                        <Paragraph>Look at your current development environment. List three tools you installed manually in the last month. Do you know exactly which version they are? Do you know which libraries they shared with other tools? If your laptop was lost today, how many hours would it take to recreate this exact state?</Paragraph>
+                    </Question>
+                </Activity>
+            </Section>
+        </Session>
+    </Unit>
+</Item>
