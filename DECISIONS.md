@@ -49,3 +49,11 @@ Converted final PDF to .docx according to OU submission guidelines. Saved in dis
 - Tier 2 (Local/Admin): Created git-ignored `.administrative/` folder for email drafts, tutor communications, and raw feedback.
 - Tier 3 (Archival): Moved bulky binaries (ZIPs, GIFs) to the local ignored folder to reduce repo bloat.
 This enforces the 'Great Firewall' principle, ensuring a professional, public-ready repository for tutor review and future OER release.
+
+- [2026-05-11 14:39] SESSION SUMMARY (2026-05-11 Morning):
+- Completed TM470 GitHub Cleanup: Synced Lab v2.0 and decision logs to remote.
+- Implemented 'Three-Tier Privacy Strategy': Anonymized TMA resources (removed PI: A5624864) and separated administrative metadata into an ignored '.administrative/' folder.
+- Prepared Tutor Onboarding: Drafted introduction for Bill Tait (bill.tait@open.ac.uk) leveraging the 'Encapsulated Educational Objects' framing.
+- Great Firewall: Successfully decoupled personal iDigital Systems context from the academic TM470 track.
+- Next Steps: Monitor OU CRM for tutor confirmation, send onboarding email, and begin TMA03 OER mapping (013).
+- [2026-05-14 15:45] RESEARCH LOG: Gov UK API (v2) 301 redirect loop documented as a 'Fragility of External Dependencies' case study for TM470. This illustrates the sociotechnical risk of relying on external API gateways in reproducible systems. Decision: Lowered priority to allow for portal-side propagation.

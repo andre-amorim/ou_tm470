@@ -1,6 +1,6 @@
 ---
 summary: Integrate LNbits Backend with Nix and uv
-status: In Progress
+status: To Do
 sprint: 3
 points: 8
 priority: Low

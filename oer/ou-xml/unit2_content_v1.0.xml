@@ -44,13 +44,23 @@
             <Title>Practice Activity: The Reproducible Hello World</Title>
             <Section>
                 <Activity>
-                    <Heading>Hands-on Object</Heading>
+                    <Heading>Hands-on Laboratory</Heading>
                     <Question>
-                        <Paragraph>1. Use the provided template to initialize your first Nix/uv project.</Paragraph>
-                        <Paragraph>2. Add a dependency (e.g., <ComputerCode>requests</ComputerCode>) using <ComputerCode>uv add</ComputerCode>.</Paragraph>
-                        <Paragraph>3. Share the <ComputerCode>flake.nix</ComputerCode> and <ComputerCode>uv.lock</ComputerCode> with a teammate. Can they run your script without installing anything manually?</Paragraph>
+                        <Paragraph>To put these concepts into practice, complete the <Shareders>Unit 2 Laboratory</Shareders> located in the course resources folder.</Paragraph>
+                        <Paragraph>1. Navigate to the laboratory folder: <ComputerCode>ou_tm470/oer/lab/unit2_practice/</ComputerCode>.</Paragraph>
+                        <Paragraph>2. Follow the steps in the <ComputerCode>README.md</ComputerCode> to initialize your first Nix/uv project.</Paragraph>
+                        <Paragraph>3. Observe how the <ComputerCode>flake.lock</ComputerCode> and <ComputerCode>uv.lock</ComputerCode> files act as "hermetic seals" for your dependencies.</Paragraph>
                     </Question>
                 </Activity>
+                <SAQ>
+                    <Heading>Self-Assessment Question 1</Heading>
+                    <Question>
+                        <Paragraph>What is the primary difference between <ComputerCode>flake.nix</ComputerCode> and <ComputerCode>flake.lock</ComputerCode>?</Paragraph>
+                    </Question>
+                    <Answer>
+                        <Paragraph><ComputerCode>flake.nix</ComputerCode> is the <Shareders>blueprint</Shareders> (specifying where to find dependencies and what the environment should contain), while <ComputerCode>flake.lock</ComputerCode> is the <Shareders>hermetic seal</Shareders> (capturing the exact cryptographic hashes and versions of those dependencies to ensure bit-identical reproduction across machines).</Paragraph>
+                    </Answer>
+                </SAQ>
                 <Paragraph><Emphasis>Pedagogical Note: This unit facilitates "Concept Formation" by moving the learner from a sequence of events to a state of being.</Emphasis></Paragraph>
             </Section>
         </Session>

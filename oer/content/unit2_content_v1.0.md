@@ -31,9 +31,14 @@ By running `nix develop`, the system creates a **temporary, isolated environment
 
 ---
 ### 🧩 Practice Object: The Reproducible Hello World
-1. Use the provided template to initialize your first Nix/uv project.
-2. Add a dependency (e.g., `requests`) using `uv add`.
-3. Share the `flake.nix` and `uv.lock` with a teammate. Can they run your script without installing anything manually?
+To put these concepts into practice, complete the **Unit 2 Laboratory**.
+
+**Activity Instructions:**
+1. Navigate to the laboratory folder: `ou_tm470/oer/lab/unit2_practice/`.
+2. Follow the steps in the `README.md` to initialize your first Nix/uv project.
+3. Observe how the `flake.lock` and `uv.lock` files act as "hermetic seals" for your dependencies.
+
+**Reflective Question:** If you shared this folder with a teammate, what would they need to install on their system besides Nix?
 
 ---
 *Pedagogical Note: This unit facilitates "Concept Formation" by moving the learner from a sequence of events to a state of being.*

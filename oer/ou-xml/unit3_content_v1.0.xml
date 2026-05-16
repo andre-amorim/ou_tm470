@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <Unit>
+        <UnitID>nixB-U3</UnitID>
+        <UnitTitle>Unit 3: The Deployment Object – From Blueprint to Reality</UnitTitle>
+        <Session>
+            <Title>3.1 The Artifact: Beyond "It Runs on My Machine"</Title>
+            <Section>
+                <Title>Encapsulating the State</Title>
+                <Paragraph>In Unit 2, we mastered the <Shareders>Blueprint</Shareders> (Nix Flakes). But a blueprint is just instructions. In Unit 3, we focus on the <Shareders>Deployment Object</Shareders>—the actual realization of those instructions into a self-contained, immutable <GlossaryTerm>Artifact</GlossaryTerm>.</Paragraph>
+                <Paragraph>In traditional development, "deploying" often means manually moving files and hoping the server's environment matches yours. In the nixB model, the Deployment is an <GlossaryTerm>Encapsulated Object</GlossaryTerm>. It contains the code, the libraries, and the exact system dependencies required to run, all bundled together.</Paragraph>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>3.2 Immutability: The "Frozen" State</Title>
+            <Section>
+                <Title>Immutable Deliverables</Title>
+                <Paragraph>The core characteristic of a Deployment Object is <Shareders>Immutability</Shareders>. Once an artifact is built, it should never change.</Paragraph>
+                <BulletedList>
+                    <ListItem>If you need to update a library, you don't "patch" the deployment.</ListItem>
+                    <ListItem>Instead, you update the <Shareders>Blueprint</Shareders> (Unit 2) and generate a <Emphasis>new</Emphasis> Deployment Object.</ListItem>
+                </BulletedList>
+                <Box type="Key Point">
+                    <Heading>Zero-Downtime Reliability</Heading>
+                    <Paragraph>This ensures that "Version 1.0.1" is exactly the same today as it will be in five years, because it is defined by the cryptographic hashes we saw in Unit 2.</Paragraph>
+                </Box>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>3.3 The Delivery Mechanism: Nix Bundles and Containers</Title>
+            <Section>
+                <Title>Distribution Channels</Title>
+                <Paragraph>How do we move these objects? The Nix ecosystem provides several methods for object delivery:</Paragraph>
+                <NumberedList>
+                    <ListItem><Shareders>Nix Build:</Shareders> Compiles your project into a specific, isolated path in the Nix Store.</ListItem>
+                    <ListItem><Shareders>Nix Bundle:</Shareders> Allows you to take that store path and bundle it into a single executable that can run on any Linux machine.</ListItem>
+                    <ListItem><Shareders>Declarative Containers:</Shareders> Automatically generate OCI-compliant (Docker) images from your Nix blueprint.</ListItem>
+                </NumberedList>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>Practice Activity: Shipping the Blueprint</Title>
+            <Section>
+                <Activity>
+                    <Heading>Hands-on Laboratory</Heading>
+                    <Question>
+                        <Paragraph>To put these concepts into practice, complete the <Shareders>Unit 3 Laboratory</Shareders> located in the course resources folder.</Paragraph>
+                        <Paragraph>1. Navigate to the laboratory folder: <ComputerCode>ou_tm470/oer/lab/unit3_deployment/</ComputerCode>.</Paragraph>
+                        <Paragraph>2. Follow the steps in the <ComputerCode>README.md</ComputerCode> to "freeze" your project into a Nix artifact using <ComputerCode>nix build</ComputerCode>.</Paragraph>
+                        <Paragraph>3. Attempt to run the artifact directly from the Nix store.</Paragraph>
+                    </Question>
+                </Activity>
+                <SAQ>
+                    <Heading>Self-Assessment Question 2</Heading>
+                    <Question>
+                        <Paragraph>Why is "patching" a deployment discouraged in the declarative model?</Paragraph>
+                    </Question>
+                    <Answer>
+                        <Paragraph>Patching a deployment introduces <Shareders>Configuration Drift</Shareders>. It breaks the link between the blueprint and the artifact, making the system's state non-deterministic and non-reproducible. Instead, we update the blueprint and deploy a new, verified object.</Paragraph>
+                    </Answer>
+                </SAQ>
+                <Paragraph><Emphasis>Pedagogical Note: Unit 3 moves the learner from "Concept Formation" to "Concept Application," realizing the theory as a tangible, immutable result.</Emphasis></Paragraph>
+            </Section>
+        </Session>
+    </Unit>
+</Item>

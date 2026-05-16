@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <Unit>
+        <UnitID>nixB-U4</UnitID>
+        <UnitTitle>Unit 4: The Integration Object – Mastering the Ecosystem</UnitTitle>
+        <Session>
+            <Title>4.1 The Integration Object: Scaling Modular Power</Title>
+            <Section>
+                <Title>Beyond the Hello World</Title>
+                <Paragraph>In the previous units, we mastered the <Shareders>Blueprint</Shareders> and the <Shareders>Artifact</Shareders>. But real software exists in ecosystems. Unit 4 introduces the <Shareders>Integration Object</Shareders>—where multiple modular artifacts combine into a functional, high-stakes system.</Paragraph>
+                <Paragraph>Our case study is <Shareders>LNbits</Shareders>, a Bitcoin Lightning Network system. By applying our Nix/uv foundations, we build extensions that are perfectly reproducible, even when relying on complex backends like Bitcoin nodes.</Paragraph>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>4.2 The Composition of Objects</Title>
+            <Section>
+                <Title>Modular Synergy</Title>
+                <Paragraph>Instead of a "monolithic" application, we think of the system as a <GlossaryTerm>Composition</GlossaryTerm>:</Paragraph>
+                <BulletedList>
+                    <ListItem><Shareders>Foundation:</Shareders> The Nix/uv environment.</ListItem>
+                    <ListItem><Shareders>Backend:</Shareders> The LNbits core (managed as a Nix input).</ListItem>
+                    <ListItem><Shareders>Specialist:</Shareders> Our custom Scrum Extension.</ListItem>
+                </BulletedList>
+                <Paragraph>This encapsulation ensures that changes to the core do not break the extension, as dependencies never "leak" between objects.</Paragraph>
+            </Section>
+        </Session>
+
+        <Session>
+            <Title>Practice Activity: Launching the Ecosystem</Title>
+            <Section>
+                <Activity>
+                    <Heading>Final Capstone Laboratory</Heading>
+                    <Question>
+                        <Paragraph>To complete the course, launch the <Shareders>Unit 4 Laboratory</Shareders>.</Paragraph>
+                        <Paragraph>1. Navigate to the laboratory folder: <ComputerCode>ou_tm470/oer/lab/unit4_integration/</ComputerCode>.</Paragraph>
+                        <Paragraph>2. Run <ComputerCode>nix develop</ComputerCode> to enter the integrated environment.</Paragraph>
+                        <Paragraph>3. Launch the LNbits instance and verify the Scrum extension is active.</Paragraph>
+                    </Question>
+                </Activity>
+                <SAQ>
+                    <Heading>Self-Assessment Question 3</Heading>
+                    <Question>
+                        <Paragraph>How does the "Integration Object" approach improve the stability of complex software like LNbits?</Paragraph>
+                    </Question>
+                    <Answer>
+                        <Paragraph>By treating each component (Core, Extension, Node) as an encapsulated object with its own immutable dependencies, we prevent <Shareders>Dependency Hell</Shareders>. We can update individual pieces of the stack with confidence, knowing they won't interfere with the system state of other components.</Paragraph>
+                    </Answer>
+                </SAQ>
+                <Paragraph><Emphasis>Pedagogical Note: Unit 4 represents the "Synthesis" phase of Tait’s framework, where granular concepts are integrated into a meaningful, functional whole.</Emphasis></Paragraph>
+            </Section>
+        </Session>
+    </Unit>
+</Item>
