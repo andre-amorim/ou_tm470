@@ -57,3 +57,5 @@ This enforces the 'Great Firewall' principle, ensuring a professional, public-re
 - Great Firewall: Successfully decoupled personal iDigital Systems context from the academic TM470 track.
 - Next Steps: Monitor OU CRM for tutor confirmation, send onboarding email, and begin TMA03 OER mapping (013).
 - [2026-05-14 15:45] RESEARCH LOG: Gov UK API (v2) 301 redirect loop documented as a 'Fragility of External Dependencies' case study for TM470. This illustrates the sociotechnical risk of relying on external API gateways in reproducible systems. Decision: Lowered priority to allow for portal-side propagation.
+
+- [2026-07-02 12:05] Strategic Decision: Adopted a Codelab-First authoring strategy for the nixB course units. Instead of managing complex OU-XML schemas directly, the author will write content strictly in the Google Codelabs markdown format following FORMAT-GUIDE.md and the Google Doc template, allowing complete focus on educational content. The custom Go parser (codelab2ouxml) and local server (oer-server) will automate translation to validated OU-XML and preview HTML.
