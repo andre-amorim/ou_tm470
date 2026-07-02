@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TextType="CompleteItem" SchemaVersion="2.0" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <CourseCode>nixB</CourseCode>
+    <CourseTitle>nixB – A Didactic Laboratory for Software Reproducibility</CourseTitle>
+    <ItemID>nixB-U2</ItemID>
+    <ItemTitle>Unit 2: The Practice Object – Constructing the Blueprint</ItemTitle>
     <Unit>
         <UnitID>nixB-U2</UnitID>
         <UnitTitle>Unit 2: The Practice Object – Constructing the Blueprint</UnitTitle>
@@ -7,49 +11,48 @@
             <Title>2.1 From Chaos to Order: The Hierarchical Mental Model</Title>
             <Section>
                 <Title>Thinking in Objects</Title>
-                <Paragraph>In Unit 1, we identified the "Jenga Tower" of manual installations. Now, we move to the solution: <Shareders>The Declarative Hierarchy</Shareders>.</Paragraph>
+                <Paragraph>In Unit 1, we identified the &quot;Jenga Tower&quot; of manual installations. Now, we move to the solution: <GlossaryTerm>The Declarative Hierarchy</GlossaryTerm>.</Paragraph>
                 <Paragraph>Think of your development environment not as a list of actions, but as a set of <GlossaryTerm>Educational Objects</GlossaryTerm> (Tait, 1997). In Unit 2, we introduce two tools that work together to create a perfectly reproducible stack:</Paragraph>
                 <BulletedList>
-                    <ListItem><Shareders>Nix:</Shareders> The "System Foundation" that manages binary dependencies.</ListItem>
-                    <ListItem><Shareders>uv:</Shareders> The "Project Specialist" that manages Python-specific libraries.</ListItem>
+                    <ListItem><GlossaryTerm>Nix</GlossaryTerm>: The &quot;System Foundation&quot; that manages binary dependencies.</ListItem>
+                    <ListItem><GlossaryTerm>uv</GlossaryTerm>: The &quot;Project Specialist&quot; that manages Python-specific libraries.</ListItem>
                 </BulletedList>
             </Section>
         </Session>
-
         <Session>
             <Title>2.2 Nix Flakes: The Hermetic Seal</Title>
             <Section>
                 <Title>Deterministic Blueprints</Title>
-                <Paragraph>A <Shareders>Nix Flake</Shareders> (<ComputerCode>flake.nix</ComputerCode>) is your master blueprint. It specifies exactly which "Inputs" (sources of code) you are using and what "Outputs" (development shells or applications) you want to build.</Paragraph>
-                <Box type="Key Point">
+                <Paragraph>A <GlossaryTerm>Nix Flake</GlossaryTerm> (<ComputerCode>flake.nix</ComputerCode>) is your master blueprint. It specifies exactly which &quot;Inputs&quot; (sources of code) you are using and what &quot;Outputs&quot; (development shells or applications) you want to build.</Paragraph>
+                <Box type="style1">
                     <Heading>The Power of the Lockfile</Heading>
                     <Paragraph>When you run a Nix flake, it generates a <ComputerCode>flake.lock</ComputerCode>. This file contains the exact cryptographic hash of every dependency. If you share your flake with a colleague in 10 years, they will get the exact same bits, byte-for-byte.</Paragraph>
                 </Box>
             </Section>
         </Session>
-
         <Session>
             <Title>2.3 uv: The Fast Python Handshake</Title>
             <Section>
                 <Title>Isolated Environments</Title>
-                <Paragraph>While Nix handles the heavy lifting of system libraries (like <ComputerCode>openssl</ComputerCode> or <ComputerCode>libsqlite3</ComputerCode>), we use <Shareders>uv</Shareders> to manage our Python packages.</Paragraph>
-                <MediaContent src="declarative_hierarchy_blueprint.png" type="image">
+                <Paragraph>While Nix handles the heavy lifting of system libraries (like <ComputerCode>openssl</ComputerCode> or <ComputerCode>libsqlite3</ComputerCode>), we use <GlossaryTerm>uv</GlossaryTerm> to manage our Python packages.</Paragraph>
+                <Figure>
+                    <Image src="declarative_hierarchy_blueprint.png"/>
                     <Caption>Figure 1: The Declarative Hierarchy (Nix and uv)</Caption>
                     <Description>A 3D isometric stack showing the host system foundation, the Nix Flake layer, and the nested uv Python environment.</Description>
-                </MediaContent>
+                </Figure>
             </Section>
         </Session>
-
         <Session>
             <Title>Practice Activity: The Reproducible Hello World</Title>
             <Section>
+                <Title>Hands-on Laboratory</Title>
                 <Activity>
                     <Heading>Hands-on Laboratory</Heading>
                     <Question>
-                        <Paragraph>To put these concepts into practice, complete the <Shareders>Unit 2 Laboratory</Shareders> located in the course resources folder.</Paragraph>
-                        <Paragraph>1. Navigate to the laboratory folder: <ComputerCode>ou_tm470/oer/lab/unit2_practice/</ComputerCode>.</Paragraph>
-                        <Paragraph>2. Follow the steps in the <ComputerCode>README.md</ComputerCode> to initialize your first Nix/uv project.</Paragraph>
-                        <Paragraph>3. Observe how the <ComputerCode>flake.lock</ComputerCode> and <ComputerCode>uv.lock</ComputerCode> files act as "hermetic seals" for your dependencies.</Paragraph>
+                        <Paragraph>To put these concepts into practice, complete the <GlossaryTerm>Unit 2 Laboratory</GlossaryTerm> located in the course resources folder.</Paragraph>
+                        <Paragraph>1. Navigate to the laboratory folder: <ComputerCode>ou_tm470/oer/lab/unit2_practice/</ComputerCode>.
+2. Follow the steps in the <ComputerCode>README.md</ComputerCode> to initialize your first Nix/uv project.
+3. Observe how the <ComputerCode>flake.lock</ComputerCode> and <ComputerCode>uv.lock</ComputerCode> files act as &quot;hermetic seals&quot; for your dependencies.</Paragraph>
                     </Question>
                 </Activity>
                 <SAQ>
@@ -58,10 +61,10 @@
                         <Paragraph>What is the primary difference between <ComputerCode>flake.nix</ComputerCode> and <ComputerCode>flake.lock</ComputerCode>?</Paragraph>
                     </Question>
                     <Answer>
-                        <Paragraph><ComputerCode>flake.nix</ComputerCode> is the <Shareders>blueprint</Shareders> (specifying where to find dependencies and what the environment should contain), while <ComputerCode>flake.lock</ComputerCode> is the <Shareders>hermetic seal</Shareders> (capturing the exact cryptographic hashes and versions of those dependencies to ensure bit-identical reproduction across machines).</Paragraph>
+                        <Paragraph><ComputerCode>flake.nix</ComputerCode> is the <GlossaryTerm>blueprint</GlossaryTerm> (specifying where to find dependencies and what the environment should contain), while <ComputerCode>flake.lock</ComputerCode> is the <GlossaryTerm>hermetic seal</GlossaryTerm> (capturing the exact cryptographic hashes and versions of those dependencies to ensure bit-identical reproduction across machines).</Paragraph>
                     </Answer>
                 </SAQ>
-                <Paragraph><Emphasis>Pedagogical Note: This unit facilitates "Concept Formation" by moving the learner from a sequence of events to a state of being.</Emphasis></Paragraph>
+                <Paragraph><i>Pedagogical Note: This unit facilitates &quot;Concept Formation&quot; by moving the learner from a sequence of events to a state of being.</i></Paragraph>
             </Section>
         </Session>
     </Unit>
