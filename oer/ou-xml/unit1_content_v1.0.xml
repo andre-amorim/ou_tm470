@@ -1,51 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TextType="CompleteItem" SchemaVersion="2.0" xsi:noNamespaceSchemaLocation="http://www.open.ac.uk/openlearn/ou-xml/schema.xsd">
+    <CourseCode>nixB</CourseCode>
+    <CourseTitle>nixB – A Didactic Laboratory for Software Reproducibility</CourseTitle>
+    <ItemID>nixB-Unit</ItemID>
+    <ItemTitle>Unit 1: The Reproducibility Gap – From Chaos to Order</ItemTitle>
     <Unit>
-        <UnitID>nixB-U1</UnitID>
+        <UnitID>nixB-Unit</UnitID>
         <UnitTitle>Unit 1: The Reproducibility Gap – From Chaos to Order</UnitTitle>
         <Session>
-            <Title>1.1 The Crisis: The "It Works on My Machine" Fallacy</Title>
+            <Title>1.1 The Crisis: The &quot;It Works on My Machine&quot; Fallacy</Title>
             <Section>
-                <Title>The Whiteboard Metaphor</Title>
-                <Paragraph>In modern software development, we often treat our operating systems like <Shareders>whiteboards</Shareders>. We write commands, install libraries, and modify configurations. This is known as the <Emphasis>Imperative Model</Emphasis>.</Paragraph>
-                <Paragraph>The problem? Whiteboards are messy. When you install a new tool, it might overwrite a library that another tool needs. Over time, your system becomes a "Jenga Tower" of hidden dependencies. This leads to <Shareders>Configuration Drift</Shareders>: the slow, invisible divergence of your machine's state from the production server or your teammate's laptop.</Paragraph>
+                <Paragraph>In modern software development, we often treat our operating systems like <b>whiteboards</b>. We write commands, install libraries, and modify configurations. This is known as the <b>Imperative Model</b>.</Paragraph>
+                <Paragraph>The problem? Whiteboards are messy. When you install a new tool, it might overwrite a library that another tool needs. Over time, your system becomes a &quot;Jenga Tower&quot; of hidden dependencies. This leads to <b>Configuration Drift</b>: the slow, invisible divergence of your machine&apos;s state from the production server or your teammate&apos;s laptop.</Paragraph>
                 <Quote>
-                    <Paragraph>"The reference, the file path itself is opaque, and because it lacks transparency, any script or application that relies on that path is inherently non-deterministic." (Podcast Transcript, 2026)</Paragraph>
+                    <Paragraph>&quot;The reference, the file path itself is opaque, and because it lacks transparency, any script or application that relies on that path is inherently non-deterministic.&quot; (Podcast Transcript, 2026)</Paragraph>
                 </Quote>
             </Section>
         </Session>
-
         <Session>
             <Title>1.2 Systems Thinking: The Mental Model Gap</Title>
             <Section>
-                <Title>Understanding State Mutation</Title>
-                <Paragraph>Why do we keep falling into this trap? Following <Shareders>Donella Meadows (2009)</Shareders>, we can identify a "Mental Model Gap." Our minds want to believe that a command like <ComputerCode>apt install</ComputerCode> is a simple addition. In reality, it is a <Shareders>State Mutation</Shareders> with ripples across the entire system.</Paragraph>
-                <Paragraph>To solve the reproducibility gap, we must stop thinking about <Emphasis>actions</Emphasis> (what to do) and start thinking about <Emphasis>blueprints</Emphasis> (what the system should be).</Paragraph>
+                <Paragraph>Why do we keep falling into this trap? Following <b>Donella Meadows (2009)</b>, we can identify a &quot;Mental Model Gap.&quot; Our minds want to believe that a command like <ComputerCode>apt install</ComputerCode> is a simple addition. In reality, it is a <b>State Mutation</b> with ripples across the entire system.</Paragraph>
+                <Paragraph>To solve the reproducibility gap, we must stop thinking about <i>actions</i> (what to do) and start thinking about <i>blueprints</i> (what the system should be).</Paragraph>
             </Section>
         </Session>
-
         <Session>
             <Title>1.3 The Solution: The Declarative Blueprint</Title>
             <Section>
-                <Title>Determinism and Pure Functions</Title>
-                <Paragraph>Transitioning to a <Shareders>Declarative Model</Shareders> means moving away from a sequence of steps. Instead, we define a single source of truth: the <Shareders>Blueprint</Shareders>.</Paragraph>
+                <Paragraph>Transitioning to a <b>Declarative Model</b> means moving away from a sequence of steps. Instead, we define a single source of truth: the <b>Blueprint</b>.</Paragraph>
                 <BulletedList>
-                    <ListItem><Shareders>Imperative:</Shareders> "Download this, then move it here, then change this line."</ListItem>
-                    <ListItem><Shareders>Declarative:</Shareders> "The system shall have this specific version of Python and this specific library, hashed and verified."</ListItem>
+                    <ListItem><b>Imperative:</b> &quot;Download this, then move it here, then change this line.&quot;</ListItem>
+                    <ListItem><b>Declarative:</b> &quot;The system shall have this specific version of Python and this specific library, hashed and verified.&quot;</ListItem>
                 </BulletedList>
-                <Paragraph>By using <Shareders>Nix</Shareders>, we turn our environment into a <Shareders>Pure Function</Shareders>. Given the same blueprint (inputs), you will always get the exact same environment (output), mathematically eradicating the "Works on my machine" error.</Paragraph>
+                <Paragraph>By using <b>Nix</b>, we turn our environment into a <b>Pure Function</b>. Given the same blueprint (inputs), you will always get the exact same environment (output), mathematically eradicating the &quot;Works on my machine&quot; error.</Paragraph>
+                <Paragraph>---</Paragraph>
             </Section>
-        </Session>
-
-        <Session>
-            <Title>Activity: The Jenga Audit</Title>
             <Section>
-                <Activity>
-                    <Heading>Self-Reflection</Heading>
-                    <Question>
-                        <Paragraph>Look at your current development environment. List three tools you installed manually in the last month. Do you know exactly which version they are? Do you know which libraries they shared with other tools? If your laptop was lost today, how many hours would it take to recreate this exact state?</Paragraph>
-                    </Question>
-                </Activity>
+                <Title>🧩 Practice Object: The Jenga Audit</Title>
+                <Paragraph><i>Look at your current development environment. List three tools you installed manually in the last month. Do you know exactly which version they are? Do you know which libraries they shared with other tools? If your laptop was lost today, how many hours would it take to recreate this exact state?</i></Paragraph>
             </Section>
         </Session>
     </Unit>

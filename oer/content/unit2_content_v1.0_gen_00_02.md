@@ -18,7 +18,7 @@ kernelspec:
 ## Deterministic Blueprints
 
 
-A <!--UnknownTag: Shareders :UnknownTag--> (`flake.nix`) is your master blueprint. It specifies exactly which "Inputs" (sources of code) you are using and what "Outputs" (development shells or applications) you want to build.
+A __Nix Flake__ (`flake.nix`) is your master blueprint. It specifies exactly which "Inputs" (sources of code) you are using and what "Outputs" (development shells or applications) you want to build.
 
 <!-- #region tags=["style-box", "alert-success"] -->
 

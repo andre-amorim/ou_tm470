@@ -2,3 +2,4 @@
 .direnv/
 content/*_preview.md
 content/*_preview.html
+bin/
