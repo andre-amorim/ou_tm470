@@ -1,5 +1,8 @@
+# Nix / direnv
 .venv/
 .direnv/
-content/*_preview.md
-content/*_preview.html
+result
+
+# Build artifacts
 bin/
+nixb-reproducible-environments/
