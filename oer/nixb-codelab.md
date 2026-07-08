@@ -33,20 +33,23 @@ Duration: 0:15:00
 
 > **The Hook:** Let's experience a classic failure. Imagine you're working on a Python project that requires a specific C library (`libsecp256k1`) to compile securely.
 
-If you have Nix installed, we can simulate this environment failure *without* polluting your host system or needing to pre-install Python and pip.
+If you have Nix installed, we can simulate this environment failure *without* polluting your host system or needing to pre-install Python/pip:
 
 Run this command in your terminal:
 ```bash
-nix shell nixpkgs#python3 nixpkgs#python3Packages.pip --command pip install secp256k1
+nix shell nixpkgs#uv --command uv run --no-binary --with secp256k1 python -c "import secp256k1"
 ```
 
-Nix will dynamically spin up a clean shell with Python and `pip` available, and `pip` will attempt to install `secp256k1`. You will immediately encounter this compilation build failure:
+Nix will dynamically fetch the `uv` toolchain, which automatically sets up a clean, isolated Python environment. The `--no-binary` flag forces `uv` to compile `secp256k1` from source instead of downloading pre-compiled binaries. You will immediately encounter a build failure:
 
 ```
-ERROR: Could not build wheels for secp256k1 [...] fatal error: 'secp256k1.h' file not found
+× Failed to build `secp256k1`
+├─▶ The build backend returned an error
+...
+'pkg-config' is required to install this package (or 'secp256k1.h' file not found)
 ```
 
-Why did this happen? Nix successfully provided a clean Python interpreter and `pip` dynamically, but because we did *not* declare the C library dependencies in our shell, `pip` has no access to the system-level C headers (`secp256k1.h`) needed to compile the C-extension. This illustrates that language-level package managers cannot resolve system-level dependencies.
+Why did this happen? Nix successfully provided a clean Python interpreter and `uv` dynamically, but because we did *not* declare the C library dependencies (`pkg-config`, `secp256k1` development headers) in our environment shell, `uv` has no access to the system-level components needed to compile the C-extension. This illustrates that language-level package managers cannot resolve system-level dependencies.
 
 ## Step 3 — The Diagnosis: Why Did It Break?
 Duration: 0:15:00
