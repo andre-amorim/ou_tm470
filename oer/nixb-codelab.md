@@ -27,22 +27,25 @@ Welcome to the nixB Codelab! In this interactive lab, we will explore the founda
 
 Let's dive in!
 
-## Step 2 — The Failure: Try This At Home
+## Step 2 — The Failure: Experiencing the Gap
 Duration: 0:15:00
 
-> **The Hook:** Let's experience a classic failure. Imagine you're working on a Python project that requires a specific C library to compile securely.
+> **The Hook:** Let's experience a classic failure. Imagine you're working on a Python project that requires a specific C library (`libsecp256k1`) to compile securely.
 
-If you try to install the package using standard tools:
+If you have Nix installed, we can simulate this environment failure *without* polluting your host system or needing to pre-install Python and pip.
+
+Run this command in your terminal:
 ```bash
-pip install -r requirements.txt
+nix shell nixpkgs#python3 nixpkgs#python3Packages.pip --command pip install secp256k1
 ```
 
-You might encounter this real-world error:
+Nix will dynamically spin up a clean shell with Python and `pip` available, and `pip` will attempt to install `secp256k1`. You will immediately encounter this compilation build failure:
+
 ```
 ERROR: Could not build wheels for secp256k1 [...] fatal error: 'secp256k1.h' file not found
 ```
 
-Why did this happen? You have the exact same `requirements.txt` and the same Python version as your teammate, but it failed on your ARM64 machine! The reason is that `pip` cannot manage system-level dependencies like C headers (`secp256k1.h`).
+Why did this happen? Nix successfully provided a clean Python interpreter and `pip` dynamically, but because we did *not* declare the C library dependencies in our shell, `pip` has no access to the system-level C headers (`secp256k1.h`) needed to compile the C-extension. This illustrates that language-level package managers cannot resolve system-level dependencies.
 
 ## Step 3 — The Diagnosis: Why Did It Break?
 Duration: 0:15:00
