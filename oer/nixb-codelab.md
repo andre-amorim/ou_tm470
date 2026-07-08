@@ -22,6 +22,7 @@ Welcome to the nixB Codelab! In this interactive lab, we will explore the founda
 - How to write your first `flake.nix` to guarantee a reproducible environment.
 
 ### Prerequisites
+- [Nix Package Manager](https://nixos.org/download/) installed on your machine (Linux, macOS, or WSL2 on Windows)
 - A terminal environment
 - Basic understanding of command-line tools
 
