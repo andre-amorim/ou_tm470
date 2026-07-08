@@ -54,7 +54,7 @@ Why did this happen? Nix successfully provided a clean Python interpreter and `u
 ## Step 3 — The Diagnosis: Why Did It Break?
 Duration: 0:15:00
 
-Application-level package managers (`pip`, `npm`, `cargo`) only manage their specific ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.
+Application-level package managers (like `pip`, `uv`, `poetry`, `npm`, or `cargo`) only manage their specific language ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.
 
 ### The "Jenga Tower" Mental Model
 When we use `sudo apt install` or `brew install`, we mutate the global state of our operating system. Every command changes the machine in ways that aren't tracked or easily reversible. Over time, machines diverge, creating configuration drift.
