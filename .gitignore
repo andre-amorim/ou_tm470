@@ -36,3 +36,7 @@ Thumbs.db
 .direnv/
 .envrc
 .administrative/
+
+# 💾 Local Runtime State & Test Data
+.data/
+lab/lnbits-core/lnbits/extensions/

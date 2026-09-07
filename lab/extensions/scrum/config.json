@@ -1,0 +1,8 @@
+{
+  "name": "Scrum Board",
+  "short_description": "Didactic Scrum and Kanban board for project_log tracking in nixB laboratory",
+  "version": "0.1.0",
+  "tile": "view_kanban",
+  "min_lnbits_version": "0.12.0",
+  "max_lnbits_version": "2.0.0"
+}
