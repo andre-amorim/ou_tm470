@@ -47,7 +47,29 @@ In alignment with Open University computing pedagogy, the project is structured 
 
 ## 🚀 Quick-Start Replication for Assessors & Learners
 
-To experience turnkey reproducibility with zero host system pollution:
+To experience turnkey reproducibility with zero host system pollution, follow this beginner-friendly replication guide. No prior background in Unix DevOps, containers, or command-line administration is required.
+
+### 📋 Prerequisites: Terminal, Git & Nix
+
+1. **Open your Terminal:**
+   * **macOS:** Press `Cmd + Space`, type `Terminal`, and press `Enter`.
+   * **Linux:** Press `Ctrl + Alt + T` or launch `Terminal` from your application menu.
+   * **Windows 10 / 11:** Launch `Ubuntu` (WSL2) from the Start Menu.
+
+2. **Verify or Install Git:**
+   Ensure Git is available by running `git --version`. If not installed:
+   * *macOS:* Run `xcode-select --install` in Terminal.
+   * *Linux / WSL2:* Run `sudo apt update && sudo apt install -y git`.
+   * *Official Site:* [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+3. **Install Nix (with Flakes enabled):**
+   Install the Nix package manager using the official Determinate Systems installer recommended by [nix.dev/install-nix.html](https://nix.dev/install-nix.html):
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+   ```
+   *Follow the on-screen prompt and restart your Terminal window once complete.*
+
+---
 
 ### Step 1: Clone the Repository
 ```bash
@@ -56,20 +78,36 @@ cd ou_tm470
 ```
 
 ### Step 2: One-Command Ecosystem Bootstrap
+In **Terminal 1**, run:
 ```bash
 nix run
 ```
-*Note: This single command provisions all runtimes purely in the Nix store, initializes a private Bitcoin Regtest network, matures the blockchain to 101 blocks, boots Core Lightning, mounts LNbits with the custom Scrum extension, and launches the OER Codelab server on port 8080.*
+*(Alternatively: `nix run .#bootstrap`)*
 
-### Step 3: Run Automated Verification (V&V)
-In a second terminal:
+*What happens:* Nix fetches the exact pinned dependencies into the isolated `/nix/store`, boots Bitcoin Core on regtest, matures 101 blocks, initializes Core Lightning, stages LNbits with the custom Scrum extension on port 5000, and starts the OER Codelab on port 8080.
+
+### Step 3: Explore via Web Browser (GUI)
+Once the welcome banner appears in Terminal 1, open your browser:
+* **📘 OER Codelab Courseware:** [http://localhost:8080](http://localhost:8080)
+* **⚡ LNbits & Scrum Board:** [http://localhost:5000/scrum/](http://localhost:5000/scrum/)
+* **Scrum Health API:** [http://localhost:5000/scrum/api/v1/health](http://localhost:5000/scrum/api/v1/health)
+
+### Step 4: Run Automated Verification (V&V Test Suite)
+In a **second terminal window** (**Terminal 2**):
 ```bash
+cd ou_tm470
 ./scripts/verify_artefact.sh
 ```
-This executes the automated test suite, returning a deterministic **5/5 PASS** verification summary across all service endpoints.
+*(Alternatively: `nix run .#verify`)*
 
-### Step 4: Clean Teardown
-Press `Ctrl+C` in the running bootstrap terminal. POSIX signal traps will cleanly shut down all background daemons and child processes.
+This runs the automated test suite, returning a deterministic **5/5 PASS** verification summary across all service endpoints.
+
+### Step 5: Clean Teardown
+In **Terminal 1**, press:
+```text
+Ctrl + C
+```
+POSIX signal traps will cleanly shut down all background daemons (`bitcoind`, `lightningd`, `caddy`, `lnbits`) without leaving lingering background processes.
 
 ---
 
