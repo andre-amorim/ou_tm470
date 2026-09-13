@@ -26,7 +26,7 @@ In alignment with Open University computing pedagogy, the project is structured 
 
 ### 1. 🎓 [Dissertation](./dissertation/)
 *   **Path:** `./dissertation/`
-*   **Contents:** Academic research, TMA deliverables, literature analysis (Dolstra, Boettiger, Tait), and sociotechnical architecture models.
+*   **Contents:** Final Capstone Dissertation ([`TM470_EMA_Dissertation.md`](./dissertation/TM470_EMA_Dissertation.md)) — comprehensive research report, empirical verification, literature analysis (Dolstra, Boettiger, Tait), and sociotechnical evaluation.
 *   **Goal:** Theoretical grounding, problem formulation (the Reproducibility Gap), and academic translation.
 
 ### 2. 📖 [OER Course Content](./oer/)
