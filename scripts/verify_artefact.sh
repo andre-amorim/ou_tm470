@@ -26,6 +26,12 @@ assert_check() {
     fi
 }
 
+# Automatically inherit Nix store paths if bootstrap is active
+if [ -f "$DATA_DIR/env.sh" ]; then
+    # shellcheck disable=SC1090
+    . "$DATA_DIR/env.sh"
+fi
+
 # Resolve bitcoin-cli and lightning-cli either from PATH or via nix
 BTC_CLI="bitcoin-cli"
 if ! command -v bitcoin-cli > /dev/null 2>&1; then

@@ -30,6 +30,10 @@ echo " 🏰 nixB: Open University TM470 Capstone Laboratory Bootstrap"
 echo "================================================================"
 echo "Initializing services..."
 
+# Export runtime environment so verify_artefact.sh in another terminal inherits all tools
+mkdir -p "$REPO_ROOT/.data"
+echo "export PATH=\"$PATH\"" > "$REPO_ROOT/.data/env.sh"
+
 # 1. Start Lab (Bitcoin + Core Lightning)
 "$REPO_ROOT/scripts/run_lab.sh" &
 PIDS+=($!)
