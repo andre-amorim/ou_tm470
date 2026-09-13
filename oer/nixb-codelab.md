@@ -260,25 +260,28 @@ Why is software reproducibility critical for mission-critical and financial soft
 ## Step 11 — Comprehension Checkpoints
 Duration: 0:15:00
 
-Test your understanding of the concepts covered in this Codelab:
+Test your understanding of the concepts covered in this Codelab. Select your answers and click **Check Answer** for immediate validation:
 
-### Checkpoint 1: The Dependency Boundary
-*Why did `uv run --no-binary --with secp256k1` fail on our initial run?*
-- [ ] Python 3 was not compatible with the `secp256k1` package.
-- [x] Application package managers manage language packages, but cannot resolve host C libraries and headers unless explicitly supplied.
-- [ ] The user did not run the command with `sudo`.
+<form>
+  <name>Why did uv run --no-binary --with secp256k1 fail on our initial host run in Step 2?</name>
+  <input value="Python 3 was fundamentally incompatible with the secp256k1 package.">
+  <input value="Application package managers manage language packages, but cannot resolve host C libraries and headers unless explicitly supplied by the environment.">
+  <input value="The user did not run the command with sudo administrative privileges.">
+</form>
 
-### Checkpoint 2: The Nix Store Model
-*How does Nix prevent dependency collisions between two different versions of the same library?*
-- [ ] It runs every command inside an individual virtual machine.
-- [x] It stores each package in an isolated directory prefixed by a cryptographic hash of its inputs in `/nix/store`.
-- [ ] It renames the library files in `/usr/lib`.
+<form>
+  <name>How does Nix prevent dependency collisions between two different versions of the same library?</name>
+  <input value="It runs every individual command and binary inside an isolated virtual machine.">
+  <input value="It stores each package in an isolated directory prefixed by a cryptographic hash of its complete input closure in /nix/store.">
+  <input value="It dynamically renames conflicting .so or .dylib files inside /usr/lib.">
+</form>
 
-### Checkpoint 3: Declarative vs. Imperative
-*What distinguishes Nix Flakes from traditional tools like Dockerfiles?*
-- [ ] Dockerfiles do not use containers.
-- [x] Dockerfiles rely on imperative network downloads (`apt-get update`) that drift over time, whereas Flakes cryptographically lock the entire dependency graph in `flake.lock`.
-- [ ] Nix only works on Linux, while Docker works on all platforms.
+<form>
+  <name>What fundamental reproducibility advantage distinguishes Nix Flakes from traditional Dockerfiles?</name>
+  <input value="Dockerfiles do not use container namespaces.">
+  <input value="Dockerfiles rely on imperative network downloads (e.g. apt-get update) that drift over time, whereas Flakes cryptographically lock the entire dependency graph in flake.lock.">
+  <input value="Nix only runs on Linux, whereas Docker is cross-platform.">
+</form>
 
 ## Step 12 — Critical Reflection & Learning Log
 Duration: 0:20:00

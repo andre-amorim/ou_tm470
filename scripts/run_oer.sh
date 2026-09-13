@@ -12,14 +12,15 @@ mkdir -p "$DATA_DIR/oer-build"
 cd "$DATA_DIR/oer-build"
 
 echo "📘 [nixB OER] Compiling Codelab HTML..."
+TEMPLATE="$OER_SRC/template.html"
 if command -v claat >/dev/null 2>&1; then
-    claat export "$OER_SRC/nixb-codelab.md"
+    claat export -f "$TEMPLATE" "$OER_SRC/nixb-codelab.md"
 elif [ -f "$HOME/go/bin/claat" ]; then
-    "$HOME/go/bin/claat" export "$OER_SRC/nixb-codelab.md"
+    "$HOME/go/bin/claat" export -f "$TEMPLATE" "$OER_SRC/nixb-codelab.md"
 else
     echo "Building claat from source..."
     go install github.com/googlecodelabs/tools/claat@latest
-    "$HOME/go/bin/claat" export "$OER_SRC/nixb-codelab.md"
+    "$HOME/go/bin/claat" export -f "$TEMPLATE" "$OER_SRC/nixb-codelab.md"
 fi
 
 echo "🌐 [nixB OER] Starting Caddy Server on http://localhost:8080 ..."

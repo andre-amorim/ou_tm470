@@ -1,0 +1,369 @@
+<!--
+Copyright (c) 2016 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
+-->
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>{{.Meta.Title}}</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="{{.Prefix}}/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+
+    /* nixB Enhanced Code Snippet Copy Button */
+    .snippet-wrapper {
+      position: relative;
+      margin: 1.5em 0;
+    }
+    .snippet-wrapper pre {
+      margin: 0 !important;
+    }
+    .snippet-copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+      color: #5f6368;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(60,64,67,0.15);
+      transition: all 0.2s ease;
+      opacity: 0.85;
+      z-index: 10;
+    }
+    .snippet-wrapper:hover .snippet-copy-btn {
+      opacity: 1;
+    }
+    .snippet-copy-btn:hover {
+      background: #ffffff;
+      color: #1a73e8;
+      border-color: #1a73e8;
+      box-shadow: 0 2px 5px rgba(26,115,232,0.25);
+    }
+    .snippet-copy-btn .material-icons {
+      font-size: 16px;
+      margin-right: 4px;
+    }
+    .snippet-copy-btn.copied {
+      background: #e6f4ea !important;
+      color: #137333 !important;
+      border-color: #ceead6 !important;
+    }
+    .snippet-copy-btn.copied .material-icons {
+      color: #137333;
+    }
+
+    /* nixB Interactive Quiz Enhancements */
+    google-codelab-survey {
+      background: #ffffff !important;
+      border: 1px solid #dadce0 !important;
+      border-left: 5px solid #1a73e8 !important;
+      border-radius: 8px !important;
+      padding: 20px 24px !important;
+      margin: 24px 0 !important;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.12) !important;
+      transition: box-shadow 0.2s ease !important;
+    }
+    google-codelab-survey:hover {
+      box-shadow: 0 4px 8px rgba(60,64,67,0.18) !important;
+    }
+    google-codelab-survey h4 {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #202124 !important;
+      padding-top: 0 !important;
+      margin-bottom: 12px !important;
+    }
+    .survey-question-wrapper {
+      padding: 0 0 12px 0 !important;
+    }
+    .survey-option-wrapper {
+      display: flex !important;
+      align-items: center !important;
+      padding: 10px 14px !important;
+      margin-bottom: 8px !important;
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 6px !important;
+      background: #fafafa !important;
+      transition: all 0.15s ease-in-out !important;
+      cursor: pointer !important;
+    }
+    .survey-option-wrapper:hover {
+      background: #f1f3f4 !important;
+      border-color: #1a73e8 !important;
+    }
+    .survey-option-wrapper input:checked ~ .option-text {
+      color: #1a73e8 !important;
+      font-weight: 500 !important;
+    }
+    .survey-option-wrapper.selected {
+      background: #e8f0fe !important;
+      border-color: #1a73e8 !important;
+    }
+    .custom-radio-button {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      margin-right: 12px !important;
+      border: 2px solid #5f6368 !important;
+    }
+    .survey-option-wrapper input:checked ~ .custom-radio-button {
+      border-color: #1a73e8 !important;
+      background-color: #1a73e8 !important;
+    }
+    .survey-option-wrapper input:checked ~ .custom-radio-button:after {
+      background: #ffffff !important;
+    }
+    .survey-option-wrapper .option-text {
+      font-size: 14px !important;
+      padding-left: 0 !important;
+      color: #3c4043 !important;
+    }
+    .nixb-quiz-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .nixb-check-btn {
+      align-self: flex-start;
+      background: #1a73e8;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(60,64,67,0.3);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .nixb-check-btn:hover {
+      background: #1557b0;
+      box-shadow: 0 2px 4px rgba(60,64,67,0.35);
+    }
+    .nixb-quiz-feedback {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .nixb-quiz-feedback.correct {
+      display: block;
+      background: #e6f4ea;
+      color: #137333;
+      border: 1px solid #ceead6;
+      border-left: 4px solid #1e8e3e;
+    }
+    .nixb-quiz-feedback.incorrect {
+      display: block;
+      background: #fce8e6;
+      color: #c5221f;
+      border: 1px solid #fad2cf;
+      border-left: 4px solid #d93025;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="{{.GlobalGA}}" ga4id="{{.GlobalGA4}}"></google-codelab-analytics>
+  <google-codelab codelab-gaid="{{.Meta.GA}}"
+                  codelab-ga4id="{{.Meta.GA4}}"
+                  id="{{.Meta.ID}}"
+                  title="{{.Meta.Title}}"
+                  environment="{{index .Env}}"
+                  feedback-link="{{.Meta.Feedback}}">
+    {{range $i, $e := .Steps}}{{if matchEnv .Tags $.Env}}
+      <google-codelab-step label="{{.Title}}" duration="{{.Duration.Minutes}}">
+        {{.Content | renderHTML $.Context}}
+      </google-codelab-step>
+    {{end}}{{end}}
+  </google-codelab>
+
+  <script src="{{.Prefix}}/claat-public/native-shim.js"></script>
+  <script src="{{.Prefix}}/claat-public/custom-elements.min.js"></script>
+  <script src="{{.Prefix}}/claat-public/prettify.js"></script>
+  <script src="{{.Prefix}}/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+  <script>
+    // nixB UI Enhancer: Inject Floating Copy Buttons & Click-and-Check Quizzes
+    (function() {
+      function enhanceSnippets() {
+        var pres = document.querySelectorAll('pre');
+        pres.forEach(function(pre) {
+          if (pre.closest('.snippet-wrapper')) return;
+
+          var wrapper = document.createElement('div');
+          wrapper.className = 'snippet-wrapper';
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          var btn = document.createElement('button');
+          btn.className = 'snippet-copy-btn';
+          btn.type = 'button';
+          btn.title = 'Copy to clipboard';
+          btn.setAttribute('aria-label', 'Copy code snippet');
+          btn.innerHTML = '<span class="material-icons">content_copy</span><span>Copy</span>';
+
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var code = pre.querySelector('code') || pre;
+            var codeText = code.innerText || code.textContent || '';
+            navigator.clipboard.writeText(codeText.trim()).then(function() {
+              btn.innerHTML = '<span class="material-icons">check</span><span>Copied!</span>';
+              btn.classList.add('copied');
+              setTimeout(function() {
+                btn.innerHTML = '<span class="material-icons">content_copy</span><span>Copy</span>';
+                btn.classList.remove('copied');
+              }, 2000);
+            }).catch(function(err) {
+              console.error('Copy failed: ', err);
+            });
+          });
+
+          wrapper.appendChild(btn);
+        });
+      }
+
+      var quizFeedbacks = {
+        "uv run --no-binary --with secp256k1": {
+          correctPattern: /Application package managers/i,
+          successMsg: "Correct! Language managers like pip, uv, or npm manage Python packages, but cannot resolve host C-headers (secp256k1.h) or compiler tools. Nix bridges this gap by declaring system libraries in the shell derivation.",
+          failMsg: "Not quite. Pip/uv successfully download the Python package, but the C-extension compilation crashes because the OS lacks secp256k1.h header files."
+        },
+        "prevent dependency collisions": {
+          correctPattern: /stores each package in an isolated directory prefixed by a cryptographic hash/i,
+          successMsg: "Correct! Store paths incorporate the cryptographic hash of all build inputs (/nix/store/<hash>-...), allowing multiple incompatible versions to coexist on the same filesystem without collision.",
+          failMsg: "Not quite. Nix avoids the overhead of virtual machines and avoids mutating global /usr/lib. It achieves conflict-free isolation via unique cryptographic store paths."
+        },
+        "distinguishes Nix Flakes from traditional tools": {
+          correctPattern: /rely on imperative network downloads/i,
+          successMsg: "Correct! Running `docker build` on an older Dockerfile often breaks or pulls newer packages due to imperative apt/apk commands. A Nix Flake with `flake.lock` reconstructs the exact identical graph.",
+          failMsg: "Not quite. While Docker provides container runtime isolation, its build instructions are imperative mutations against external servers, causing temporal drift."
+        }
+      };
+
+      function enhanceSurveys() {
+        var surveys = document.querySelectorAll('google-codelab-survey');
+        surveys.forEach(function(survey) {
+          if (survey.dataset.quizEnhanced) return;
+
+          var qWrappers = survey.querySelectorAll('.survey-question-wrapper');
+          if (!qWrappers.length) return; // Wait until custom elements have upgraded
+
+          survey.dataset.quizEnhanced = "true";
+
+          qWrappers.forEach(function(qw) {
+            var h4 = qw.querySelector('h4');
+            var qText = h4 ? h4.textContent : "";
+
+            var matchedCfg = null;
+            Object.keys(quizFeedbacks).forEach(function(key) {
+              if (qText.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+                matchedCfg = quizFeedbacks[key];
+              }
+            });
+            if (!matchedCfg) return;
+
+            var controls = document.createElement('div');
+            controls.className = 'nixb-quiz-controls';
+
+            var checkBtn = document.createElement('button');
+            checkBtn.className = 'nixb-check-btn';
+            checkBtn.type = 'button';
+            checkBtn.textContent = 'Check Answer';
+
+            var feedbackBox = document.createElement('div');
+            feedbackBox.className = 'nixb-quiz-feedback';
+
+            checkBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              var checkedRadio = qw.querySelector('input[type="radio"]:checked');
+              if (!checkedRadio) {
+                feedbackBox.className = 'nixb-quiz-feedback incorrect';
+                feedbackBox.innerHTML = '⚠️ <strong>Please select an option before checking.</strong>';
+                return;
+              }
+
+              var label = checkedRadio.closest('.survey-option-wrapper');
+              var answerText = label ? label.textContent : "";
+
+              if (matchedCfg.correctPattern.test(answerText)) {
+                feedbackBox.className = 'nixb-quiz-feedback correct';
+                feedbackBox.innerHTML = '✅ <strong>Pass!</strong> ' + matchedCfg.successMsg;
+              } else {
+                feedbackBox.className = 'nixb-quiz-feedback incorrect';
+                feedbackBox.innerHTML = '❌ <strong>Incorrect.</strong> ' + matchedCfg.failMsg;
+              }
+            });
+
+            controls.appendChild(checkBtn);
+            controls.appendChild(feedbackBox);
+            qw.appendChild(controls);
+          });
+        });
+      }
+
+      function runEnhancements() {
+        enhanceSnippets();
+        enhanceSurveys();
+      }
+
+      // Initial execution
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runEnhancements);
+      } else {
+        runEnhancements();
+      }
+
+      // Periodic check during element upgrades and step transitions
+      var checkInterval = setInterval(function() {
+        runEnhancements();
+      }, 300);
+
+      // Stop high frequency polling after 10s, maintain mutation observer
+      setTimeout(function() {
+        clearInterval(checkInterval);
+      }, 10000);
+
+      var observer = new MutationObserver(function() {
+        runEnhancements();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
+</body>
+</html>
