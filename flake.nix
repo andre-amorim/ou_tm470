@@ -62,6 +62,14 @@
             exec bash "${self}/scripts/bootstrap.sh" "$@"
           '';
         };
+        verifyScript = pkgs.writeShellApplication {
+          name = "nixb-verify";
+          runtimeInputs = [ pkgs.bitcoin pkgs.clightning pkgs.curl pkgs.coreutils ];
+          text = ''
+            export NIXB_REPO_ROOT="''${NIXB_REPO_ROOT:-$PWD}"
+            exec bash "${self}/scripts/verify_artefact.sh" "$@"
+          '';
+        };
       in
       {
         packages = {
@@ -69,6 +77,7 @@
           lab = labScript;
           lnbits = lnbitsScript;
           bootstrap = bootstrapScript;
+          verify = verifyScript;
           default = bootstrapScript;
         };
 
@@ -88,6 +97,10 @@
           bootstrap = {
             type = "app";
             program = "${bootstrapScript}/bin/nixb-bootstrap";
+          };
+          verify = {
+            type = "app";
+            program = "${verifyScript}/bin/nixb-verify";
           };
           default = {
             type = "app";

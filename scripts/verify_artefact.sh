@@ -26,11 +26,22 @@ assert_check() {
     fi
 }
 
+# Resolve bitcoin-cli and lightning-cli either from PATH or via nix
+BTC_CLI="bitcoin-cli"
+if ! command -v bitcoin-cli > /dev/null 2>&1; then
+    BTC_CLI="nix run nixpkgs#bitcoin -- bitcoin-cli"
+fi
+
+CLN_CLI="lightning-cli"
+if ! command -v lightning-cli > /dev/null 2>&1; then
+    CLN_CLI="nix run nixpkgs#clightning -- lightning-cli"
+fi
+
 assert_check "OER Web Server (Port 8080)" "curl -s -f http://localhost:8080"
 assert_check "LNbits HTTP Server (Port 5000)" "curl -s -f -L http://localhost:5000"
 assert_check "LNbits Scrum Extension Health API" "curl -s -f http://localhost:5000/scrum/api/v1/health"
-assert_check "Bitcoin Core Regtest Block Height >= 101" "[ \$(bitcoin-cli -regtest -datadir=$DATA_DIR/bitcoin-regtest getblockcount) -ge 101 ]"
-assert_check "Core Lightning RPC Active" "lightning-cli --network=regtest --lightning-dir=$DATA_DIR/cln-regtest getinfo"
+assert_check "Bitcoin Core Regtest Block Height >= 101" "[ \$($BTC_CLI -regtest -datadir=$DATA_DIR/bitcoin-regtest getblockcount) -ge 101 ]"
+assert_check "Core Lightning RPC Active" "$CLN_CLI --network=regtest --lightning-dir=$DATA_DIR/cln-regtest getinfo"
 
 echo "------------------------------------------------------"
 echo " Verification Summary: $PASS Passed, $FAIL Failed"
