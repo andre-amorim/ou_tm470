@@ -23,5 +23,11 @@ else
     "$HOME/go/bin/claat" export -f "$TEMPLATE" "$OER_SRC/nixb-codelab.md"
 fi
 
+if [ -d "$OER_SRC/img" ]; then
+    echo "🖼️  [nixB OER] Staging images to $CODELAB_OUT/img ..."
+    mkdir -p "$CODELAB_OUT/img"
+    cp -r "$OER_SRC/img/"* "$CODELAB_OUT/img/"
+fi
+
 echo "🌐 [nixB OER] Starting Caddy Server on http://localhost:8080 ..."
 exec caddy file-server --root "$CODELAB_OUT" --listen :8080

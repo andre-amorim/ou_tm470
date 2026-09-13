@@ -97,6 +97,10 @@ Every time a command with `sudo` is executed, it mutates the global state of the
 
 Over months of development, your operating system turns into a **"Jenga Tower"**. Each project pulls or modifies system dependencies until a single package update causes the entire environment to collapse. Worse still, you cannot capture this state in your project's Git repository.
 
+![The Jenga Tower Mental Model of Operating System Mutation](img/nixB_jenga_tower.jpeg)
+
+*Figure 1: The Jenga Tower mental model illustrating how progressive imperative system modifications destabilize development environments.*
+
 > **Key Takeaway:** Application package managers don't manage machines; they only manage files inside their language boundary. When C extensions are involved, global OS mutation creates configuration drift.
 
 ## Step 4 — The Reproducibility Gap
@@ -104,19 +108,9 @@ Duration: 0:10:00
 
 The difference between *"the code compiles on my laptop"* and *"the system deploys deterministically on any machine"* is what we call the **Reproducibility Gap**.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Application Layer                        │
-│             (Python / uv / requirements.txt)                │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                      THE REPRODUCIBILITY GAP
-                               │
-┌──────────────────────────────▼──────────────────────────────┐
-│                     Host System Layer                       │
-│    (C Libraries / Headers / Linker / Architecture / FHS)    │
-└─────────────────────────────────────────────────────────────┘
-```
+![The Reproducibility Gap: Application Layer vs Host System Layer](img/nixB_reproducibility_gap.jpeg)
+
+*Figure 2: The Reproducibility Gap between language-level package managers and host system dependencies.*
 
 The table below contrasts the main paradigms used in industry today:
 
@@ -131,8 +125,8 @@ Duration: 0:10:00
 
 Nix is not just a package manager; it is a **purely functional deployment model**. 
 
-In purely functional programming, a pure function $f(x)$ guarantees:
-* Given the identical input $x$, it *always* returns the exact same output $y$.
+In purely functional programming, a pure function `f(x)` guarantees:
+* Given the identical input `x`, it *always* returns the exact same output `y`.
 * It produces zero side effects (it does not modify global state).
 
 Nix applies this mathematical principle to system software:
@@ -211,56 +205,14 @@ Nix represents **True Declarative IaC**:
 * You declare the complete, finished state of the entire universe as a graph.
 * The system derivation builds atomically: either the entire graph succeeds and symlinks switch instantaneously, or nothing changes.
 
-## Step 9 — Practical Lab: Orchestrating Bitcoin Regtest & LNbits
-Duration: 0:25:00
+![Imperative vs True Declarative Infrastructure as Code](img/nixB_iac_comparison.jpeg)
 
-In this hands-on laboratory, we demonstrate how Nix orchestrates a heterogeneous, high-stakes software stack: a private **Bitcoin Regtest** node, a **Core Lightning (CLN)** daemon, and **LNbits** with its native Scrum task extension.
+*Figure 3: Imperative state modification vs pure atomic graph evaluation in Infrastructure as Code.*
 
-### 1. Launching the Multi-Daemon Environment
-From the root of the project repository, execute the unified bootstrap command:
-```bash
-nix run .#bootstrap
-```
-
-Notice what Nix is doing:
-* It compiles or fetches `bitcoind`, `lightningd`, `caddy`, and `uv` without requiring root permissions.
-* It initializes a clean, ephemeral sandbox in `.data/`.
-
-### 2. Inspecting the Isolated Bitcoin Node
-Open a second terminal and query your local regression testing daemon:
-```bash
-bitcoin-cli -datadir=.data/bitcoin getblockchaininfo
-```
-
-Notice that the `chain` is reported as `regtest`. To simulate immediate transaction confirmation, mine 101 initial blocks:
-```bash
-bitcoin-cli -datadir=.data/bitcoin generatetoaddress 101 $(bitcoin-cli -datadir=.data/bitcoin getnewaddress)
-```
-
-### 3. Interacting with LNbits and the Scrum Extension
-Open your web browser and navigate to:
-```
-http://localhost:5000
-```
-
-1. Create a demo wallet.
-2. Navigate to the **Manage Extensions** menu and enable the **Scrum** extension.
-3. Notice how task completion can be programmatically tied to instant, off-chain Lightning satoshi settlements.
-
-> **Tip:** If port 5000 or 8080 is already occupied on your system, you can supply custom ports via environment variables: `PORT=5050 nix run .#bootstrap`.
-
-## Step 10 — Security Through Reproducibility
-Duration: 0:10:00
-
-Why is software reproducibility critical for mission-critical and financial software?
-1. **Supply Chain Defense:** If developers cannot deterministically rebuild a binary from source code, malicious backdoors (such as the famous XZ Utils backdoor CVE-2024-3094) can be secretly injected during distribution without detection.
-2. **Auditability & Attestation:** Independent reviewers across the world can compile the exact same Git commit and verify that their SHA-256 output hashes match bit-for-bit.
-3. **Eliminating "Works On My Machine":** Eliminates subtle bugs caused by differing glibc versions, compiler optimization flags, or unpinned transitive libraries.
-
-## Step 11 — Comprehension Checkpoints
+## Step 9 — Comprehension Checkpoint
 Duration: 0:15:00
 
-Test your understanding of the concepts covered in this Codelab. Select your answers and click **Check Answer** for immediate validation:
+Before progressing to the advanced multi-daemon laboratory, test your understanding of the core concepts covered so far. Select your answers and click **Check Answer** for immediate validation:
 
 <form>
   <name>Why did uv run --no-binary --with secp256k1 fail on our initial host run in Step 2?</name>
@@ -282,6 +234,62 @@ Test your understanding of the concepts covered in this Codelab. Select your ans
   <input value="Dockerfiles rely on imperative network downloads (e.g. apt-get update) that drift over time, whereas Flakes cryptographically lock the entire dependency graph in flake.lock.">
   <input value="Nix only runs on Linux, whereas Docker is cross-platform.">
 </form>
+
+## Step 10 — Practical Lab: Orchestrating Bitcoin Regtest & LNbits
+Duration: 0:25:00
+
+Now that the conceptual foundations are verified, we transition into the advanced hands-on laboratory. Here, we demonstrate how Nix orchestrates a heterogeneous, high-stakes financial software stack: a private **Bitcoin Regtest** node, a **Core Lightning (CLN)** daemon, and **LNbits** with its native Scrum task extension.
+
+### 1. Cloning the Laboratory Repository
+The full multi-daemon orchestrator and extension laboratory are packaged in the `nixB` repository. Open your terminal, clone the repository, and enter the root workspace:
+
+```bash
+git clone https://github.com/andre-amorim/ou_tm470.git
+cd ou_tm470
+```
+
+> **Repository Anatomy:** The laboratory definitions and LNbits extensions are encapsulated within the `lab/` directory, while the root `flake.nix` unifies the entire multi-daemon lifecycle and data sandbox.
+
+### 2. Launching the Multi-Daemon Environment
+From the root of the cloned repository, execute the unified bootstrap command:
+```bash
+nix run .#bootstrap
+```
+
+Notice what Nix is doing:
+* It compiles or fetches `bitcoind`, `lightningd`, `caddy`, and `uv` without requiring root permissions.
+* It initializes a clean, ephemeral sandbox in `.data/`.
+
+### 3. Inspecting the Isolated Bitcoin Node
+Open a second terminal, navigate to the `ou_tm470` repository directory, and query your local regression testing daemon:
+```bash
+bitcoin-cli -datadir=.data/bitcoin getblockchaininfo
+```
+
+Notice that the `chain` is reported as `regtest`. To simulate immediate transaction confirmation, mine 101 initial blocks:
+```bash
+bitcoin-cli -datadir=.data/bitcoin generatetoaddress 101 $(bitcoin-cli -datadir=.data/bitcoin getnewaddress)
+```
+
+### 4. Interacting with LNbits and the Scrum Extension
+Open your web browser and navigate to:
+```
+http://localhost:5000
+```
+
+1. Create a demo wallet.
+2. Navigate to the **Manage Extensions** menu and enable the **Scrum** extension.
+3. Notice how task completion can be programmatically tied to instant, off-chain Lightning satoshi settlements.
+
+> **Tip:** If port 5000 or 8080 is already occupied on your system, you can supply custom ports via environment variables: `PORT=5050 nix run .#bootstrap`.
+
+## Step 11 — Security Through Reproducibility
+Duration: 0:10:00
+
+Why is software reproducibility critical for mission-critical and financial software?
+1. **Supply Chain Defense:** If developers cannot deterministically rebuild a binary from source code, malicious backdoors (such as the famous XZ Utils backdoor CVE-2024-3094) can be secretly injected during distribution without detection.
+2. **Auditability & Attestation:** Independent reviewers across the world can compile the exact same Git commit and verify that their SHA-256 output hashes match bit-for-bit.
+3. **Eliminating "Works On My Machine":** Eliminates subtle bugs caused by differing glibc versions, compiler optimization flags, or unpinned transitive libraries.
 
 ## Step 12 — Critical Reflection & Learning Log
 Duration: 0:20:00
