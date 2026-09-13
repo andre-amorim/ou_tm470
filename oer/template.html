@@ -213,20 +213,45 @@ the License.
       position: relative !important;
       top: 0 !important;
       left: 0 !important;
+      width: 18px !important;
+      min-width: 18px !important;
+      max-width: 18px !important;
+      height: 18px !important;
+      min-height: 18px !important;
+      max-height: 18px !important;
+      flex-shrink: 0 !important;
       margin-right: 12px !important;
       border: 2px solid #5f6368 !important;
+      border-radius: 50% !important;
+      box-sizing: border-box !important;
+      display: inline-block !important;
+      background-color: #ffffff !important;
+      transition: border-color 0.15s ease, background-color 0.15s ease !important;
     }
     .survey-option-wrapper input:checked ~ .custom-radio-button {
       border-color: #1a73e8 !important;
-      background-color: #1a73e8 !important;
+      background-color: #ffffff !important;
+    }
+    .survey-option-wrapper .custom-radio-button:after {
+      content: "" !important;
+      position: absolute !important;
+      top: 3px !important;
+      left: 3px !important;
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      background: #1a73e8 !important;
+      display: none !important;
     }
     .survey-option-wrapper input:checked ~ .custom-radio-button:after {
-      background: #ffffff !important;
+      display: block !important;
     }
     .survey-option-wrapper .option-text {
       font-size: 14px !important;
+      line-height: 1.5 !important;
       padding-left: 0 !important;
       color: #3c4043 !important;
+      flex-grow: 1 !important;
     }
     .nixb-quiz-controls {
       display: flex;
@@ -234,8 +259,12 @@ the License.
       gap: 12px;
       margin-top: 14px;
     }
+    .nixb-quiz-buttons-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     .nixb-check-btn {
-      align-self: flex-start;
       background: #1a73e8;
       color: #ffffff;
       border: none;
@@ -251,6 +280,26 @@ the License.
     .nixb-check-btn:hover {
       background: #1557b0;
       box-shadow: 0 2px 4px rgba(60,64,67,0.35);
+    }
+    .nixb-reset-btn {
+      background: #ffffff;
+      color: #5f6368;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .nixb-reset-btn:hover {
+      background-color: #f1f3f4;
+      border-color: #c6c6c6;
+      color: #202124;
     }
     .nixb-quiz-feedback {
       display: none;
@@ -370,7 +419,7 @@ the License.
           successMsg: "Correct! Store paths incorporate the cryptographic hash of all build inputs (/nix/store/<hash>-...), allowing multiple incompatible versions to coexist on the same filesystem without collision.",
           failMsg: "Not quite. Nix avoids the overhead of virtual machines and avoids mutating global /usr/lib. It achieves conflict-free isolation via unique cryptographic store paths."
         },
-        "distinguishes Nix Flakes from traditional tools": {
+        "distinguishes Nix Flakes": {
           correctPattern: /rely on imperative network downloads/i,
           successMsg: "Correct! Running `docker build` on an older Dockerfile often breaks or pulls newer packages due to imperative apt/apk commands. A Nix Flake with `flake.lock` reconstructs the exact identical graph.",
           failMsg: "Not quite. While Docker provides container runtime isolation, its build instructions are imperative mutations against external servers, causing temporal drift."
@@ -402,10 +451,18 @@ the License.
             var controls = document.createElement('div');
             controls.className = 'nixb-quiz-controls';
 
+            var btnRow = document.createElement('div');
+            btnRow.className = 'nixb-quiz-buttons-row';
+
             var checkBtn = document.createElement('button');
             checkBtn.className = 'nixb-check-btn';
             checkBtn.type = 'button';
             checkBtn.textContent = 'Check Answer';
+
+            var resetBtn = document.createElement('button');
+            resetBtn.className = 'nixb-reset-btn';
+            resetBtn.type = 'button';
+            resetBtn.innerHTML = '<span class="material-icons" style="font-size:16px;">refresh</span> Reset';
 
             var feedbackBox = document.createElement('div');
             feedbackBox.className = 'nixb-quiz-feedback';
@@ -432,7 +489,27 @@ the License.
               }
             });
 
-            controls.appendChild(checkBtn);
+            resetBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              // Uncheck all radios in this question
+              var radios = qw.querySelectorAll('input[type="radio"]');
+              radios.forEach(function(radio) {
+                radio.checked = false;
+              });
+              // Remove .selected class from all option wrappers
+              var optionWrappers = qw.querySelectorAll('.survey-option-wrapper');
+              optionWrappers.forEach(function(opt) {
+                opt.classList.remove('selected');
+              });
+              // Clear feedback box
+              feedbackBox.className = 'nixb-quiz-feedback';
+              feedbackBox.innerHTML = '';
+            });
+
+            btnRow.appendChild(checkBtn);
+            btnRow.appendChild(resetBtn);
+            controls.appendChild(btnRow);
             controls.appendChild(feedbackBox);
             qw.appendChild(controls);
           });
