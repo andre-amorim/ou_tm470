@@ -23,4 +23,4 @@ export LNBITS_BACKEND_WALLET_CLASS="VoidWallet"
 export LNBITS_SITE_TITLE="nixB Didactic Lab"
 
 echo "⚡ [nixB LNbits] Launching LNbits backend via declarative flake on http://$HOST:$PORT ..."
-exec nix run github:lnbits/lnbits/v1.6.1 -- "$@"
+exec nix run github:lnbits/lnbits/v1.5.4 -- "$@"
