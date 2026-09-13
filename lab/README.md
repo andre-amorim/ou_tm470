@@ -1,33 +1,38 @@
 # 🧪 The Laboratory (Artefact v2.0)
 
-This directory contains the core technical artefact of the **nixB** project. It is designed to demonstrate **Software Reproducibility** (LO5) through a purely functional Infrastructure as Code (IaC) model.
+This directory contains the hands-on laboratory artefact of the **nixB** capstone project. It is designed to demonstrate **Software Reproducibility** (LO5) through a purely functional Infrastructure-as-Code (IaC) model.
+
+---
 
 ## 🏛️ Encapsulated Educational Objects
-In alignment with the pedagogy of **Dr. Bill Tait**, this laboratory treats the system components as discrete, encapsulated objects:
-*   **Bitcoin Core (Object A):** The settlement layer providing deterministic monetary state.
-*   **C-Lightning (Object B):** The transport layer providing real-time value exchange.
-*   **Nix (The Orchestrator):** The "Encapsulator" that ensures these objects interact within a hermetic, bit-identical environment.
 
-## 🗺️ Archive: Cloud Parity (.idx)
-The `./.idx/dev.nix` file is preserved as empirical evidence of the project's **"Black Swan" Migration**. It contains the exact configuration used during the cloud development phase (Google Project IDX), proving that the environment is 100% portable between x86_64 cloud and ARM64 local hardware.
+In alignment with the pedagogy of **Dr. Bill Tait**, this laboratory treats system components as discrete, encapsulated objects:
+*   **Bitcoin Core (Object A):** The settlement layer providing deterministic monetary state (Regtest mode).
+*   **Core Lightning (Object B):** The transport layer providing real-time value exchange (HTLCs).
+*   **Nix (The Orchestrator):** The encapsulator ensuring these objects interact within a hermetic, bit-identical environment.
+*   **LNbits & Scrum Extension:** Layer 3 application demonstrating off-chain settlements tied to Agile task workflows.
+
+---
 
 ## 🚀 Getting Started
-1.  **Enter the Environment:**
-    ```bash
-    nix develop
-    ```
-2.  **Initialize the Stack:**
-    ```bash
-    ./start_lab.sh
-    ```
-3.  **Manage the Lifecycle:**
-    *   **Stop Services:** `./stop_lab.sh`
-    *   **Full Reset (Wipe Data):** `./reset_lab.sh`
 
-### What happens?
-The `start_lab.sh` script automates the sociotechnical handshake:
-*   It boots a private **Regtest** blockchain.
-*   It mines 101 blocks to "mature" the network.
-*   It synchronizes the C-Lightning node to the Bitcoin backend.
+The laboratory environment can be operated in two ways:
 
-This provides a functional "Didactic Snapshot," ready for the integration of **LNbits** in TMA03.
+### 1. Unified Single-Command Bootstrap (Root Flake)
+From the root of the monorepo, run:
+```bash
+nix run
+```
+This orchestrates the full laboratory (Bitcoin Regtest + Core Lightning + LNbits + OER Codelab) with automated lifecycle management and clean POSIX signal teardown.
+
+### 2. Isolated Laboratory Shell
+To explore the isolated laboratory tools interactively:
+```bash
+nix develop
+```
+Inside this pure environment, `bitcoind`, `lightningd`, `bitcoin-cli`, and `lightning-cli` are available without requiring root permissions or host system dependencies.
+
+---
+
+## 🗺️ Cloud Parity Archive (`.idx`)
+The `./.idx/dev.nix` configuration is preserved as empirical evidence of the project's **"Black Swan" Migration** (LO7). It records the identical declarative configuration used during cloud prototyping on Google Project IDX (x86_64), proving bit-for-bit operational parity when migrating to local ARM64 hardware.
