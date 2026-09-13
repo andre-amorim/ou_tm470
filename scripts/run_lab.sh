@@ -53,8 +53,13 @@ echo " Ready!"
 
 # 2. Setup Wallet and Funds
 if ! bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" listwallets | grep -q "regtest_wallet"; then
-    echo "Creating 'regtest_wallet'..."
-    bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" createwallet "regtest_wallet" > /dev/null
+    if bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" listwalletdir 2>/dev/null | grep -q "regtest_wallet"; then
+        echo "Loading existing 'regtest_wallet'..."
+        bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" loadwallet "regtest_wallet" > /dev/null
+    else
+        echo "Creating 'regtest_wallet'..."
+        bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" createwallet "regtest_wallet" > /dev/null
+    fi
 fi
 
 BLOCK_COUNT=$(bitcoin-cli -regtest -datadir="$BITCOIN_DATA_DIR" getblockcount)
