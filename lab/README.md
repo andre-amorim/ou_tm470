@@ -32,7 +32,4 @@ nix develop
 ```
 Inside this pure environment, `bitcoind`, `lightningd`, `bitcoin-cli`, and `lightning-cli` are available without requiring root permissions or host system dependencies.
 
----
 
-## 🗺️ Cloud Parity Archive (`.idx`)
-The `./.idx/dev.nix` configuration is preserved as empirical evidence of the project's **"Black Swan" Migration** (LO7). It records the identical declarative configuration used during cloud prototyping on Google Project IDX (x86_64), proving bit-for-bit operational parity when migrating to local ARM64 hardware.
