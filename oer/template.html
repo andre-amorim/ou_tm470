@@ -35,35 +35,56 @@ the License.
     .snippet-wrapper {
       position: relative;
       margin: 20px 0;
-      background: #f8f9fa;
-      border: 1px solid #dadce0;
-      border-radius: 8px;
+      background: #f8f9fa !important;
+      border: 1px solid #dadce0 !important;
+      border-radius: 8px !important;
       overflow: hidden;
       box-shadow: 0 1px 2px rgba(60,64,67,0.08);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .snippet-wrapper:hover {
-      border-color: #bdc1c6;
+      border-color: #bdc1c6 !important;
       box-shadow: 0 2px 6px rgba(60,64,67,0.15);
     }
+    google-codelab-step pre,
     .snippet-wrapper pre {
       margin: 0 !important;
-      padding: 16px 56px 16px 20px !important;
-      background: #f8f9fa !important;
+      padding: 18px 56px 18px 20px !important;
+      background-color: #f8f9fa !important;
       border: none !important;
       border-radius: 0 !important;
-      font-family: 'Roboto Mono', monospace !important;
+      font-family: 'Roboto Mono', 'Source Code Pro', Menlo, Monaco, Consolas, monospace !important;
       font-size: 13.5px !important;
       line-height: 1.6 !important;
       overflow-x: auto !important;
-      color: #37474f !important;
+      white-space: pre !important;
+      word-wrap: normal !important;
+      word-break: normal !important;
+      color: #202124 !important;
     }
+    google-codelab-step pre code,
     .snippet-wrapper pre code {
       background: transparent !important;
       padding: 0 !important;
-      color: inherit !important;
+      color: #202124 !important;
       font-family: inherit !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+      white-space: pre !important;
+      word-wrap: normal !important;
     }
+    /* Override dark Prettify colors with Google DevSite Light syntax highlighting */
+    google-codelab-step pre .str, google-codelab-step code .str { color: #188038 !important; }
+    google-codelab-step pre .kwd, google-codelab-step code .kwd { color: #1967d2 !important; font-weight: 500; }
+    google-codelab-step pre .com, google-codelab-step code .com { color: #80868b !important; font-style: italic; }
+    google-codelab-step pre .typ, google-codelab-step code .typ { color: #9334e6 !important; }
+    google-codelab-step pre .lit, google-codelab-step code .lit { color: #c5221f !important; }
+    google-codelab-step pre .pun, google-codelab-step code .pun { color: #202124 !important; }
+    google-codelab-step pre .pln, google-codelab-step code .pln { color: #202124 !important; }
+    google-codelab-step pre .tag, google-codelab-step code .tag { color: #1967d2 !important; }
+    google-codelab-step pre .atn, google-codelab-step code .atn { color: #b80672 !important; }
+    google-codelab-step pre .atv, google-codelab-step code .atv { color: #188038 !important; }
+    google-codelab-step pre .dec, google-codelab-step code .dec { color: #c5221f !important; }
     .devsite-code-buttons-container {
       position: absolute;
       top: 8px;
