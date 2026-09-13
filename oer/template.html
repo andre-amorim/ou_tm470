@@ -31,55 +31,114 @@ the License.
       color: red;
     }
 
-    /* nixB Enhanced Code Snippet Copy Button */
+    /* nixB Google Developers devsite-code replica */
     .snippet-wrapper {
       position: relative;
-      margin: 1.5em 0;
+      margin: 20px 0;
+      background: #f8f9fa;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .snippet-wrapper:hover {
+      border-color: #bdc1c6;
+      box-shadow: 0 2px 6px rgba(60,64,67,0.15);
     }
     .snippet-wrapper pre {
       margin: 0 !important;
+      padding: 16px 56px 16px 20px !important;
+      background: #f8f9fa !important;
+      border: none !important;
+      border-radius: 0 !important;
+      font-family: 'Roboto Mono', monospace !important;
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      overflow-x: auto !important;
+      color: #37474f !important;
     }
-    .snippet-copy-btn {
+    .snippet-wrapper pre code {
+      background: transparent !important;
+      padding: 0 !important;
+      color: inherit !important;
+      font-family: inherit !important;
+    }
+    .devsite-code-buttons-container {
       position: absolute;
       top: 8px;
       right: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 10;
+    }
+    .devsite-code-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #dadce0;
-      border-radius: 4px;
-      padding: 4px 8px;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
       cursor: pointer;
       color: #5f6368;
-      font-family: 'Roboto', sans-serif;
-      font-size: 12px;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+      outline: none;
+      position: relative;
+    }
+    .devsite-code-button:hover {
+      background-color: rgba(32, 33, 36, 0.06);
+      color: #202124;
+    }
+    .devsite-code-button:active {
+      background-color: rgba(32, 33, 36, 0.12);
+      transform: scale(0.95);
+    }
+    .devsite-code-button .material-icons {
+      font-size: 20px;
+      user-select: none;
+      pointer-events: none;
+    }
+    /* Google Devsite tooltip bubble */
+    .devsite-code-button::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -28px;
+      right: 50%;
+      transform: translateX(50%);
+      background: #3c4043;
+      color: #ffffff;
+      font-family: 'Roboto', 'Google Sans', sans-serif;
+      font-size: 11px;
       font-weight: 500;
-      box-shadow: 0 1px 2px rgba(60,64,67,0.15);
-      transition: all 0.2s ease;
-      opacity: 0.85;
-      z-index: 10;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 20;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
-    .snippet-wrapper:hover .snippet-copy-btn {
+    .devsite-code-button:hover::after {
       opacity: 1;
+      visibility: visible;
+      transform: translateX(50%) translateY(2px);
     }
-    .snippet-copy-btn:hover {
-      background: #ffffff;
-      color: #1a73e8;
-      border-color: #1a73e8;
-      box-shadow: 0 2px 5px rgba(26,115,232,0.25);
+    .devsite-code-button.copied {
+      color: #1e8e3e !important;
+      background-color: #e6f4ea !important;
     }
-    .snippet-copy-btn .material-icons {
-      font-size: 16px;
-      margin-right: 4px;
-    }
-    .snippet-copy-btn.copied {
-      background: #e6f4ea !important;
-      color: #137333 !important;
-      border-color: #ceead6 !important;
-    }
-    .snippet-copy-btn.copied .material-icons {
-      color: #137333;
+    .devsite-code-button.copied::after {
+      content: "Copied!";
+      background: #1e8e3e;
+      opacity: 1;
+      visibility: visible;
     }
 
     /* nixB Interactive Quiz Enhancements */
@@ -229,12 +288,15 @@ the License.
           pre.parentNode.insertBefore(wrapper, pre);
           wrapper.appendChild(pre);
 
+          var btnContainer = document.createElement('div');
+          btnContainer.className = 'devsite-code-buttons-container';
+
           var btn = document.createElement('button');
-          btn.className = 'snippet-copy-btn';
+          btn.className = 'devsite-code-button';
           btn.type = 'button';
-          btn.title = 'Copy to clipboard';
-          btn.setAttribute('aria-label', 'Copy code snippet');
-          btn.innerHTML = '<span class="material-icons">content_copy</span><span>Copy</span>';
+          btn.setAttribute('data-tooltip', 'Copy code sample');
+          btn.setAttribute('aria-label', 'Copy code sample');
+          btn.innerHTML = '<span class="material-icons">content_copy</span>';
 
           btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -242,18 +304,21 @@ the License.
             var code = pre.querySelector('code') || pre;
             var codeText = code.innerText || code.textContent || '';
             navigator.clipboard.writeText(codeText.trim()).then(function() {
-              btn.innerHTML = '<span class="material-icons">check</span><span>Copied!</span>';
+              btn.innerHTML = '<span class="material-icons">check</span>';
               btn.classList.add('copied');
+              btn.setAttribute('data-tooltip', 'Copied!');
               setTimeout(function() {
-                btn.innerHTML = '<span class="material-icons">content_copy</span><span>Copy</span>';
+                btn.innerHTML = '<span class="material-icons">content_copy</span>';
                 btn.classList.remove('copied');
+                btn.setAttribute('data-tooltip', 'Copy code sample');
               }, 2000);
             }).catch(function(err) {
               console.error('Copy failed: ', err);
             });
           });
 
-          wrapper.appendChild(btn);
+          btnContainer.appendChild(btn);
+          wrapper.appendChild(btnContainer);
         });
       }
 
