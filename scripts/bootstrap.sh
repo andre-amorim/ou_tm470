@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Prevent file descriptor exhaustion on macOS / Darwin
+ulimit -n 4096 2>/dev/null || true
+
 REPO_ROOT="${NIXB_REPO_ROOT:-$PWD}"
 export NIXB_REPO_ROOT="$REPO_ROOT"
 

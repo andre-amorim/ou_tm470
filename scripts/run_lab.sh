@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Prevent file descriptor exhaustion on macOS / Darwin
+ulimit -n 4096 2>/dev/null || true
+
 REPO_ROOT="${NIXB_REPO_ROOT:-$PWD}"
 DATA_DIR="$REPO_ROOT/.data"
 BITCOIN_DATA_DIR="$DATA_DIR/bitcoin-regtest"
@@ -39,7 +42,7 @@ echo "Lightning Data: $CLN_DATA_DIR"
 # 1. Start Bitcoin Daemon
 if ! pgrep -f "bitcoind.*$BITCOIN_DATA_DIR" > /dev/null; then
     echo "Starting bitcoind..."
-    bitcoind -regtest -datadir="$BITCOIN_DATA_DIR" -fallbackfee=0.0002 -daemon
+    bitcoind -regtest -datadir="$BITCOIN_DATA_DIR" -fallbackfee=0.0002 -maxconnections=10 -daemon
 else
     echo "bitcoind is already running."
 fi

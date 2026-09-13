@@ -13,14 +13,15 @@ rm -rf "$LNBITS_DATA_DIR/extensions/scrum"
 cp -r "$REPO_ROOT/lab/extensions/scrum" "$LNBITS_DATA_DIR/extensions/"
 
 # Stage static assets and templates required by LNbits runtime
-LNBITS_STORE_PATH=$(nix eval --raw github:lnbits/lnbits/v1.5.4#packages.aarch64-linux.default.outPath 2>/dev/null || nix build github:lnbits/lnbits/v1.5.4 --no-link --print-out-paths)
+LNBITS_STORE_PATH=$(nix build github:lnbits/lnbits/v1.5.4 --no-link --print-out-paths | tail -n 1)
+SITE_PACKAGES=$(find "$LNBITS_STORE_PATH" -type d -name "site-packages" 2>/dev/null | head -n 1)
 mkdir -p "$DATA_DIR/lnbits-runtime/lnbits"
-if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/static" ] && [ -d "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/static" ]; then
-    cp -r "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/static" "$DATA_DIR/lnbits-runtime/lnbits/"
+if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/static" ] && [ -n "$SITE_PACKAGES" ] && [ -d "$SITE_PACKAGES/lnbits/static" ]; then
+    cp -r "$SITE_PACKAGES/lnbits/static" "$DATA_DIR/lnbits-runtime/lnbits/"
     chmod -R u+w "$DATA_DIR/lnbits-runtime/lnbits/static"
 fi
-if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/templates" ] && [ -d "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/templates" ]; then
-    cp -r "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/templates" "$DATA_DIR/lnbits-runtime/lnbits/"
+if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/templates" ] && [ -n "$SITE_PACKAGES" ] && [ -d "$SITE_PACKAGES/lnbits/templates" ]; then
+    cp -r "$SITE_PACKAGES/lnbits/templates" "$DATA_DIR/lnbits-runtime/lnbits/"
     chmod -R u+w "$DATA_DIR/lnbits-runtime/lnbits/templates"
 fi
 
@@ -36,13 +37,15 @@ export LNBITS_SITE_TITLE="nixB Didactic Lab"
 
 # Auto-complete first_install setup in background once LNbits starts
 (
-    until curl -s "http://$HOST:$PORT/api/v1/health" >/dev/null 2>&1 || curl -s "http://$HOST:$PORT/first_install" >/dev/null 2>&1; do
+    for i in {1..30}; do
+        if curl -s -f "http://$HOST:$PORT/scrum/api/v1/health" >/dev/null 2>&1; then
+            break
+        fi
+        curl -s -X PUT "http://$HOST:$PORT/api/v1/auth/first_install" \
+             -H "Content-Type: application/json" \
+             -d '{"username":"admin","password":"Password123!","password_repeat":"Password123!"}' >/dev/null 2>&1 || true
         sleep 1
     done
-    sleep 1
-    curl -s -X PUT "http://$HOST:$PORT/api/v1/auth/first_install" \
-         -H "Content-Type: application/json" \
-         -d '{"username":"admin","password":"Password123!","password_repeat":"Password123!"}' >/dev/null 2>&1 || true
 ) &
 
 echo "⚡ [nixB LNbits] Launching LNbits backend via declarative flake on http://$HOST:$PORT ..."
