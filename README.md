@@ -11,11 +11,11 @@ In alignment with Open University computing pedagogy, the project is structured 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                          1. DISSERTATION                                │
-│          Theoretical Foundations & Empirical Research (Why It Breaks)    │
+│          Theoretical Foundations & Empirical Research                   │
 │                                  │                                      │
 │                                  ▼                                      │
 │                             2. OER                                      │
-│             Gentle Introduction & Interactive Codelab (Nix Basics)      │
+│             Gentle Introduction & Interactive Codelab                   │
 │                                  │                                      │
 │                                  ▼                                      │
 │                             3. THE LAB                                  │
