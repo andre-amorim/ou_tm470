@@ -17,9 +17,11 @@ LNBITS_STORE_PATH=$(nix eval --raw github:lnbits/lnbits/v1.5.4#packages.aarch64-
 mkdir -p "$DATA_DIR/lnbits-runtime/lnbits"
 if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/static" ] && [ -d "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/static" ]; then
     cp -r "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/static" "$DATA_DIR/lnbits-runtime/lnbits/"
+    chmod -R u+w "$DATA_DIR/lnbits-runtime/lnbits/static"
 fi
 if [ ! -d "$DATA_DIR/lnbits-runtime/lnbits/templates" ] && [ -d "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/templates" ]; then
     cp -r "$LNBITS_STORE_PATH/lib/python3.12/site-packages/lnbits/templates" "$DATA_DIR/lnbits-runtime/lnbits/"
+    chmod -R u+w "$DATA_DIR/lnbits-runtime/lnbits/templates"
 fi
 
 export HOST="127.0.0.1"
