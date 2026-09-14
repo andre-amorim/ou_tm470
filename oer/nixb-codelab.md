@@ -277,9 +277,15 @@ Open your web browser and navigate to:
 http://localhost:5000
 ```
 
-1. Create a demo wallet.
-2. Navigate to the **Manage Extensions** menu and enable the **Scrum** extension.
-3. Notice how task completion can be programmatically tied to instant, off-chain Lightning satoshi settlements.
+1. Log in with the pre-configured administrator credentials:
+   - **Username:** `admin`
+   - **Password:** `TM470NixB`
+2. Create or open your default wallet.
+3. Access the pre-activated **Scrum** board extension directly at:
+   ```
+   http://localhost:5000/scrum/
+   ```
+4. Notice how task completion is programmatically tied to instant, off-chain Lightning satoshi settlements.
 
 > **Tip:** If port 5000 or 8080 is already occupied on your system, you can supply custom ports via environment variables: `PORT=5050 nix run .#bootstrap`.
 

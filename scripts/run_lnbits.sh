@@ -44,7 +44,7 @@ export LNBITS_SITE_TITLE="nixB Didactic Lab"
         fi
         curl -s -X PUT "http://$HOST:$PORT/api/v1/auth/first_install" \
              -H "Content-Type: application/json" \
-             -d '{"username":"admin","password":"Password123!","password_repeat":"Password123!"}' >/dev/null 2>&1 || true
+             -d '{"username":"admin","password":"TM470NixB","password_repeat":"TM470NixB"}' >/dev/null 2>&1 || true
         sleep 1
     done
 ) &

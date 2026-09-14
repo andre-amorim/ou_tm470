@@ -74,6 +74,7 @@ cat << "BANNER"
 
  [2] ⚡ LNbits + Scrum Board Extension:
      ➔ URL: http://localhost:5000/scrum/
+     ➔ Superuser: admin  |  Password: TM470NixB
      ➔ Health API: http://localhost:5000/scrum/api/v1/health
 
  [3] 🧱 Bitcoin Regtest Blockchain:
