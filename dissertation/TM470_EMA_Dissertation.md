@@ -14,12 +14,12 @@ tags:
 generated: { by: google/gemini-3.8-flash, at: 2026-09-05T09:20:00Z }
 gdoc_url: https://docs.google.com/document/d/1eMQn3YFACjZK3trqyEViJbmTzRcsHAkyEoB7HM0RYGw/edit?usp=drivesdk
 ---
- Name: Andre de Amorim
-
-PI: A5624864
-
+ Name: Andre de Amorim  
+PI: A5624864  
+Qualification: BSc (Hons) Computing and IT (Software Route)  
+Assessment: EMA (End-of-Module Assessment) Final Project Report  
 TM470 Project: Nix₿ – A Didactic Laboratory for Software Reproducibility  
-Tutor: Dr. Bill Tait | Word Count: 9,952 words (excluding References) / Target: \~10,000 words
+Tutor: Dr. Bill Tait | Target: ~10,000 words (Main Body)
 
 ---
 
@@ -46,8 +46,11 @@ Tutor: Dr. Bill Tait | Word Count: 9,952 words (excluding References) / Target: 
 9. Communication and Presentation (Making the Course Easy to Read)  
 10. Reflection and Professional Development (What I Learned)  
 11. Appendices  
-    * Appendix A: Project Log Extracts (Sprint Logs and Decision Records)  
-    * Appendix B: Artefact Replication & Evaluation Guide (Examiner's Quick-Start)
+    * Appendix 1: Approved Project Ethics Checklist  
+    * Appendix 2: Weekly Project Log & Reflective Journal Extracts  
+    * Appendix 3: Artefact Replication & Evaluation Guide (Examiner's Quick-Start)  
+    * Appendix 4: Project Resource Inventory and Capability Matrix  
+12. References
 
 ## 1\. Introduction and Abstract
 
@@ -61,7 +64,7 @@ A developer may author code that executes flawlessly within their local developm
 
 ### The Deliverable: The NixB Didactic Laboratory and OER
 
-To address this challenge, this project delivers two integrated, complementary artefacts that bridge the gap between theoretical software engineering principles and contemporary DevOps practice.
+To address this challenge, this project delivers two integrated, complementary artefacts that bridge the gap between theoretical software engineering principles and contemporary DevOps practice. Submitted in partial fulfilment of the requirements for the **BSc (Hons) Computing and IT (Software Route)**, this capstone project investigates how purely functional declarative deployment models resolve real-world software integration failures across multi-tier web applications.
 
 The primary technical deliverable is the NixB Didactic Software Laboratory, an open-source monorepo governed entirely by declarative Nix Flakes (configured in `flake.nix` and locked via `flake.lock`). This artefact provisions a complete, multi-tier software ecosystem within an isolated, unprivileged Linux namespace, bundling Bitcoin Core (`bitcoind` in local regression testing mode), Core Lightning (`lightningd`), and the LNbits web application platform alongside a custom Scrum management extension. By encapsulating heterogeneous C, C++, and Python runtimes without relying on ambient host packages, the artefact demonstrates pure, hermetic execution. For academic assessors, the artefact provides single-command turnkey replication: executing `nix run` boots all background daemons and local web services deterministically without root privileges or host environment pollution.
 
@@ -90,6 +93,8 @@ To evaluate the practical reality of this problem within an active software ecos
 Crucially, this real-world diagnostic served as the direct pedagogical inspiration for the NixB Open Educational Resource (OER). Rather than constructing an artificial, contrived scenario for academic evaluation, I translated this genuine upstream production failure into a controlled didactic laboratory. By guiding learners through the tangible symptoms of missing system-level cryptographic toolchains and presenting the declarative Nix Flakes solution, students experience authentic software engineering challenges while observing how purely functional system configuration management (Dolstra and Hemel, 2007\) closes the Reproducibility Gap.
 
 Figure 3 Shows LNbits repository GitHub issue related to Software Reproducibility.
+
+Beyond technical benefits, evaluating the likely impact of the project outcome requires addressing the socio-technical change management demanded when adopting functional Infrastructure-as-Code within software development teams. In established industry environments, transitioning from imperative shell scripts and mutable virtual machines to purely functional package management challenges ingrained developer habits. Software engineers accustomed to ad-hoc installations (`apt-get`, `pip`, `brew`) often resist the cognitive rigour and mathematical abstractions imposed by declarative build graphs. Overcoming this organizational inertia requires a deliberate cultural shift: treating build configurations and environment specifications not as peripheral operations tasks, but as version-controlled, collaborative software assets subject to peer review, automated testing, and collective ownership. By encapsulating these complex declarative patterns into an accessible, step-by-step didactic laboratory, the NixB OER serves as an educational change-management vehicle that mitigates developer friction and lowers the barrier to adopting deterministic software engineering practices.
 
 From this empirical investigation of collaborative open-source workflows, cloud migration friction, and DevOps pipeline vulnerabilities, I formulated four explicit operational requirements for the NixB OER deliverable:
 
@@ -217,7 +222,7 @@ Fourth, pedagogical instructional design was cultivated by studying The Open Uni
 
 To maintain professional software governance, human and consultative roles were formally allocated: The student acted as Lead Systems Architect, Primary Developer, and Product Owner, maintaining ultimate accountability for architectural design, code authoring, and empirical validation. Dr. Bill Tait (Module Tutor) served as Academic Supervisor and External Quality Consultant, providing formative feedback during TMA milestones, challenging project assumptions, and evaluating alignment with BCS accreditation benchmarks and university marking rubrics.
 
-By systematically documenting hardware baselines (Section 4.2.1), declarative software stacks (Section 4.2.2), competency matrices (Section 4.2.3), and governance roles (Section 4.2.4), this self-contained audit fulfills the criteria for LO3 (Resources and Skills) and guarantees transparent operational repeatability.
+By systematically documenting hardware baselines (Section 4.2.1), declarative software stacks (Section 4.2.2), competency matrices (Section 4.2.3), and governance roles (Section 4.2.4), this self-contained audit fulfills the criteria for LO3 (Resources and Skills) and guarantees transparent operational repeatability. A comprehensive, tabular inventory of all project resources, software versions, and hardware specifications is detailed in Appendix 4.
 
 ---
 
@@ -279,7 +284,7 @@ Aligned with the Open University's Equality, Diversity, and Inclusion (EDI) benc
 
 To ensure universal accessibility, the NixB courseware interface strictly adheres to the Web Content Accessibility Guidelines (WCAG 2.1 AA) within its implemented Google Developers Codelabs architecture (`claat`), while structurally isolating content to facilitate future ingestion into the Open University's OU-XML schema. The HTML5 interface was audited for full keyboard navigability, enabling learners with mobility limitations to navigate the laboratory without relying on mouse input. High-contrast typography and syntax-highlighted code blocks were calibrated to meet contrast ratios exceeding 4.5:1, ensuring legibility for visually impaired students. Screen-reader compatibility was validated by implementing structural ARIA landmarks, descriptive alt text for architectural schematics, and linear content flows that prevent assistive technology from becoming trapped in nested layout elements. While publishing to the Open University's OpenLearn Create portal using OU-XML remains a future objective, external administrative approval bottlenecks make direct Codelabs hosting the most practical and reproducible solution within the scope of this project.
 
-In addition, the laboratory directly addresses educational equity across heterogeneous socio-economic conditions. Computing curricula and distributed systems courses frequently demand expensive commercial workstations or recurrent monthly subscriptions to cloud Virtual Private Servers (VPS) across hyperscalers like AWS or DigitalOcean, imposing an inequitable financial barrier on self-funded and distance-learning graduate students. To dismantle this economic constraint, the entire NixB ecosystem was deliberately re-architected away from proprietary cloud VPS instances and optimized to run locally on low-resource ARM64 educational hardware: a budget Chromebook equipped with an energy-efficient processor and only 8 GB of RAM. By proving that a sophisticated distributed laboratory—comprising consensus daemons, payment channels, and web platforms—can execute flawlessly and hermetically within an unprivileged sandbox on budget hardware, the project democratizes access to advanced software engineering education, ensuring that economic constraints do not hinder student mastery of software reproducibility.
+In addition, the laboratory directly addresses educational equity across heterogeneous socio-economic conditions. Computing curricula and distributed systems courses frequently demand expensive commercial workstations or recurrent monthly subscriptions to cloud Virtual Private Servers (VPS) across hyperscalers like AWS or DigitalOcean, imposing an inequitable financial barrier on self-funded and distance-learning graduate students. To dismantle this economic constraint, the entire NixB ecosystem was deliberately re-architected away from proprietary cloud VPS instances and optimized to run locally on low-resource ARM64 educational hardware: a budget Chromebook equipped with an energy-efficient processor and only 8 GB of RAM. By proving that a sophisticated distributed laboratory—comprising consensus daemons, payment channels, and web platforms—can execute flawlessly and hermetically within an unprivileged sandbox on budget hardware, the project democratizes access to advanced software engineering education, ensuring that economic constraints do not hinder student mastery of software reproducibility. The formal evaluation of legal, social, ethical, and professional issues, alongside project supervisor sign-off, is documented in the Project Ethics Checklist included in Appendix 1.
 
 ## 6\. Practical Skills and Implementation (The Artefact)
 
@@ -291,7 +296,7 @@ The implementation of NixB OER ‘hands-on laboratory’ demonstrates a synthesi
 
 The cornerstone of the laboratory is the root Nix flake configuration (flake.nix). Rather than providing learners or examiners with an error-prone sequence of imperative installation instructions, the declarative flake.nix manifest explicitly encapsulates the entire dependency graph—including Python 3.12, Bitcoin Core (bitcoind), Core Lightning (lightningd), LNbits with its native Scrum extension, and the libsecp256k1 cryptographic C library.
 
-This architecture guarantees that any assessor cloning the project repository (git clone [https://github.com/andre-amorim/ou\\\_tm470.git](https://github.com/andre-amorim/ou\\_tm470.git)) can instantly spin up an identical, working replica across Linux (x86\_64 and aarch64), Apple Silicon macOS (aarch64-darwin), or Windows (via WSL2). As detailed in the replication walkthrough in Appendix B, running nix run invokes the consolidated bootstrap orchestrator (nixb-bootstrap), binding all local services to designated loopback ports without requiring administrative sudo privileges or polluting host system directories.
+This architecture guarantees that any assessor cloning the project repository (git clone [https://github.com/andre-amorim/ou\_tm470.git](https://github.com/andre-amorim/ou_tm470.git)) can instantly spin up an identical, working replica across Linux (x86_64 and aarch64), Apple Silicon macOS (aarch64-darwin), or Windows (via WSL2). As detailed in the replication walkthrough in Appendix 3, running nix run invokes the consolidated bootstrap orchestrator (nixb-bootstrap), binding all local services to designated loopback ports without requiring administrative sudo privileges or polluting host system directories.
 
 Figure 8 Shows TM470 project GitHub repository and the flake.nix file.
 
@@ -465,6 +470,8 @@ A retrospective evaluation of the project lifecycle demonstrates that maintainin
 
 Recognising this inefficiency during Sprint 2 retrospectives, I executed a strategic pivot from rigid, ticket-heavy Scrum to a streamlined Scrumban workflow, implemented natively within the centralized Open Knowledge Format (OKF v0.2) vault. Rather than enforcing arbitrary two-week time-boxes that failed to match the asynchronous realities of distance learning and academic research, tasks were managed through continuous Kanban flow. Work-In-Progress (WIP) limits were established across active developmental tracks, segregating core Nix engineering, OER pedagogical authoring, and dissertation academic translation into dedicated, observable lanes. This methodological flexibility ensured that cognitive resources were dynamically reallocated to address critical project bottlenecks without destabilizing overall schedule delivery.
 
+When evaluated with the benefit of hindsight, the initial adoption of a rigid, text-based Scrum toolchain (`scrummd`) represented an over-engineered process model for an individual computing student. While Scrum provided valuable conceptual role separation between Product Owner, Process Facilitator, and Developer (as analyzed in Section 4.1.2), rigid sprint time-boxes and ticket ceremony generated administrative overhead without the collaborative team dynamics for which Scrum was originally designed. In contrast, transitioning to Scrumban proved to be the optimal lifecycle model for solo engineering research: it preserved Agile backlog transparency and Definition-of-Done quality gates while replacing artificial time-boxes with fluid, WIP-limited Kanban flow. As documented in the weekly project log extracts (Appendix 2), this adaptation directly protected developmental momentum during high-friction systems integration.
+
 ### 8.2 The Cloud-to-Local Migration: An Empirical Crucible for Reproducibility
 
 The most demanding technical test of the project occurred mid-lifecycle during a forced hardware and infrastructure migration. Initial development was conducted primarily within high-compute cloud instances and x86\_64 development environments. However, to evaluate the core hypothesis of software reproducibility under realistic undergraduate constraints, I undertook a complete migration of the entire development ecosystem to a resource-constrained physical thin client: a Lenovo IdeaPad Slim 3 Chromebook powered by an ARM64 MediaTek Kompanio processor with 8 GB of memory.
@@ -480,6 +487,16 @@ First, the Nix language and ecosystem impose a notoriously steep learning curve.
 Second, the immutable Nix store (`/nix/store`) imposes non-trivial local disk storage overhead. Because Nix isolates software closures by embedding exact cryptographic dependency graphs, shared libraries are duplicated across distinct package hashes rather than globally shared as in conventional FHS distributions. During active development of the Bitcoin and Lightning stack, the local Nix store grew to exceed 15 gigabytes of disk space. On storage-constrained educational hardware, regular garbage collection cycles (`nix-collect-garbage -d`) were required to prevent disk exhaustion.
 
 Third, documentation fragmentation remains an ongoing challenge within the Nix ecosystem. The ongoing community transition from classical Nix commands (`nix-env`, channels, and default expressions) to modern Flakes has produced conflicting, obsolete tutorials across developer forums. Navigating this fragmented landscape required extensive independent research into the primary C++ source code and official reference manuals, reinforcing the vital necessity of structured, verified educational resources like the NixB OER.
+
+### 8.4 Review of Current Developmental Stage and Future Roadmap
+
+Reflecting on the final deliverable against the initial project specification, the NixB didactic laboratory has attained a fully functional, deterministic operational baseline. All primary technical components—including the root Flake specification, unprivileged Bitcoin Core regtest initialization, Core Lightning node binding, LNbits web application with custom Scrum extension, and Google Codelabs OER documentation server—execute deterministically, passing 100% of automated Verification and Validation criteria (5/5 tests verified in Section 7.2 and Appendix 3).
+
+However, in accordance with iterative software engineering practice, three structured extensions form the post-capstone developmental roadmap:
+
+1. **Interactive Formative Assessment (Timescale: Q4 2026):** Integrating automated end-of-chapter comprehension quizzes directly into the interactive web courseware to provide learners with immediate feedback before progressing to complex declarative derivations.
+2. **OU-XML Transpilation & OpenLearn Ingestion (Timescale: Q1–Q2 2027):** Executing automated schema transformation from Markdown to OU-XML, and completing the institutional editorial review required to publish the courseware as a permanent, open-access offering on the Open University's OpenLearn Create platform.
+3. **Formal Usability Evaluation (Timescale: Q2 2027):** Conducting structured observational usability trials with a cohort of computing undergraduates to evaluate cognitive load reduction and refine instructional scaffolding based on empirical student feedback.
 
 ## 9\. Communication and Presentation
 
@@ -505,9 +522,24 @@ Finally, the deliberate selection of the Bitcoin, Lightning Network, and LNbits 
 
 ## 11\. Appendices
 
-### Appendix A: Project Log Extracts (Sprint Logs and Decision Records)
+### Appendix 1: Approved Project Ethics Checklist
 
-The following are extracts from my custom version of local ScrumMD backlog used to manage the project via the Agile Scrum framework:
+The Open University TM470 Project Ethics Checklist was completed and formally approved by module tutor Dr. Bill Tait prior to project execution.
+
+| Evaluation Question / Criterion | Project Status & Ethical Evidence |
+| :--- | :--- |
+| **1. Does the project involve human participants (e.g., surveys, interviews, usability tests with external subjects)?** | **No.** The project focuses on system-level software reproducibility, declarative derivations, and self-instructional OER courseware. Empirical verification was automated via deterministic test harnesses (`verify_artefact.sh`). Future cohort usability testing is scheduled as post-capstone research under institutional OpenLearn governance. |
+| **2. Does the project involve the collection, processing, or storage of personal data (GDPR / Data Protection Act 2018)?** | **No.** No personal data, user accounts, or tracking cookies are collected or stored. The "Three-Tier Privacy Strategy" was implemented to sanitize all personal identifiers and student IDs from the public repository, isolating administrative metadata to private vault storage. |
+| **3. Does the project involve financial risks, real monetary transactions, or commercial cryptocurrency assets?** | **No.** All blockchain and payment channel operations execute strictly within an isolated, local Bitcoin "Regtest" (Regression Testing) network. All mined coins and Lightning balances possess zero monetary value and cannot interact with the public Bitcoin Mainnet. |
+| **4. Does the project comply with intellectual property, third-party licensing, and copyright regulations?** | **Yes.** All third-party software dependencies (Bitcoin Core, Core Lightning, LNbits, Caddy, Nixpkgs) are licensed under recognized open-source licenses (MIT, BSD, GPL). The NixB source code is released under the MIT License, and the pedagogical courseware is published under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). |
+| **5. Does the project comply with the BCS Code of Conduct and OU AI Policy regarding generative AI?** | **Yes.** AI tools (Google Antigravity, Gemini CLI) were governed under the British Computer Society (BCS) Code of Conduct as cognitive paired assistants. Probabilistic outputs were deterministically verified against the Nix build engine before commitment, preserving human authorship, empirical validity, and academic integrity. |
+| **Supervisor Ethical Approval Status:** | **APPROVED** — Dr. Bill Tait (Module Tutor, Open University). |
+
+---
+
+### Appendix 2: Weekly Project Log & Reflective Journal Extracts
+
+The following are extracts from my local Scrumban backlog and reflective journal used to manage the project via the Agile framework:
 
 #### Card 014: Research and Implementation of Nix as Infrastructure as Code (IaC)
 
@@ -523,11 +555,11 @@ Status: Done; Completed in Sprint 2; Priority: High.
 
 ---
 
-### Appendix B: Artefact Replication & Evaluation Guide (Examiner's Quick-Start)
+### Appendix 3: Artefact Replication & Evaluation Guide (Examiner's Quick-Start)
 
 This guide provides Open University examiners, assessors, and non-DevOps readers with a comprehensive, self-contained walkthrough to replicate and evaluate the NixB capstone deliverable. The instructions assume no background in Unix DevOps, containerization, or command-line systems administration. Following these steps provisions an identical, bit-for-bit software replica with zero host system pollution.
 
-#### B.1 System Requirements and Host Prerequisites
+#### 3.1 System Requirements and Host Prerequisites
 
 The NixB laboratory is platform-agnostic and executes across modern desktop environments:
 * **Operating Systems Supported:**
@@ -536,7 +568,7 @@ The NixB laboratory is platform-agnostic and executes across modern desktop envi
   * **Windows 10 / 11:** Via Windows Subsystem for Linux 2 (WSL2 with Ubuntu).
 * **Hardware Profile:** Minimum 4 GB of system RAM (8 GB recommended) and 10 GB of free storage space. An active internet connection is required only during the initial build to fetch cryptographic derivations into the local `/nix/store`.
 
-#### B.2 Preparing Your Environment: Terminal, Git, and Nix
+#### 3.2 Preparing Your Environment: Terminal, Git, and Nix
 
 For evaluators accustomed exclusively to Graphical User Interfaces (GUIs), the replication process uses the host operating system's native command-line interface:
 * **Opening the Terminal:**
@@ -564,7 +596,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 nix --version
 ```
 
-#### B.3 Downloading the Project (Cloning the Repository)
+#### 3.3 Downloading the Project (Cloning the Repository)
 
 In your terminal, choose a working directory (such as your home or desktop folder) and clone the public GitHub repository:
 ```bash
@@ -573,7 +605,7 @@ cd ou_tm470
 ```
 This downloads the complete capstone monorepo containing the academic dissertation, OER courseware source files, custom LNbits Scrum extension, and declarative Infrastructure-as-Code manifests.
 
-#### B.4 Step 1: Launching the Ecosystem (Bootstrap)
+#### 3.4 Step 1: Launching the Ecosystem (Bootstrap)
 
 To launch the complete multi-tier laboratory, open **Terminal 1**, ensure you are in the `ou_tm470` directory, and run:
 ```bash
@@ -592,7 +624,7 @@ Unlike traditional manual software installations that require installing Python 
 
 *Duration:* The initial run may take 2–5 minutes depending on network bandwidth as Nix populates the local store. Subsequent launches execute in under 10 seconds. Keep Terminal 1 open while exploring the laboratory.
 
-#### B.5 Step 2: Exploring the Deliverable via Browser & GUI
+#### 3.5 Step 2: Exploring the Deliverable via Browser & GUI
 
 Once the Terminal 1 welcome banner appears, examiners can interact with all components using any standard web browser:
 
@@ -604,7 +636,7 @@ Once the Terminal 1 welcome banner appears, examiners can interact with all comp
    * **Pedagogical Function:** The sovereign Layer 3 accounting application running on top of local Bitcoin/Lightning daemons, featuring the custom TM470 Scrum Board extension for agile project tracking and programmatic task compensation.
    * **API Health Check:** Visit [http://localhost:5000/scrum/api/v1/health](http://localhost:5000/scrum/api/v1/health) to inspect JSON service telemetry (`"status":"ok"`).
 
-#### B.6 Step 3: Automated Verification & Validation (V&V Test Suite)
+#### 3.6 Step 3: Automated Verification & Validation (V&V Test Suite)
 
 To conduct an objective, examiner-grade assessment of the running artefact (as documented in Section 7.2 of this dissertation):
 
@@ -636,7 +668,7 @@ Checking Core Lightning RPC Active...             ✅ PASS
 🎉 ALL ARTIFACT CRITERIA VERIFIED DETERMINISTICALLY!
 ```
 
-#### B.7 Step 4: Clean Teardown and Resource Cleanup
+#### 3.7 Step 4: Clean Teardown and Resource Cleanup
 
 When evaluation is complete, the entire multi-tier stack can be cleanly dismantled:
 1. Return to **Terminal 1** and press:
@@ -649,6 +681,30 @@ When evaluation is complete, the entire multi-tier stack can be cleanly dismantl
    rm -rf .data
    ```
 4. **Zero Host Residue:** Because all binaries and libraries reside strictly inside the sandboxed `/nix/store`, removing the `ou_tm470` directory leaves the host operating system in its pristine original state.
+
+---
+
+### Appendix 4: Project Resource Inventory and Capability Matrix
+
+To fulfill the rigorous audit requirements of LO3 (Identification of Resources and Skills), the following matrix summarizes all physical hardware, declarative software toolchains, specialized technical competencies, and supervisory personnel underpinning the NixB project.
+
+| Resource Category | Component / Asset | Specification / Version Baseline | Operational Role & Justification |
+| :--- | :--- | :--- | :--- |
+| **Hardware** | Primary Compute Node | Apple MacBook Air (Apple M-series, 16 GB RAM, macOS Darwin ARM64) | Primary development workstation, high-intensity derivations, central knowledge vault. |
+| **Hardware** | Low-Resource Evaluation Platform | Lenovo IdeaPad Slim 3 Chromebook (MediaTek Kompanio 520, 8 GB RAM, Debian Linux ARM64) | Realistic student hardware baseline, proving low-resource accessibility (LO10) and multi-OS determinism (LO11). |
+| **Software / IaC** | Package Manager | Nix (v2.24+) with pure evaluation Flakes enabled | Core Infrastructure-as-Code engine; enforces cryptographic store isolation and pure builds. |
+| **Software / Web** | Documentation Server | Caddy Web Server (v2.8+) | Zero-configuration HTTP server bound to loopback port 8080 for local, offline OER delivery. |
+| **Software / OER** | Courseware Compiler | Google Codelabs CLI (`claat`) | Compiles modular Markdown into responsive, accessible, WCAG 2.1 AA-compliant courseware. |
+| **Software / App** | Web Application Platform | LNbits (v1.5.4 pinned, FastAPI, Quasar/Vue 3, Uvicorn) | Sovereign Layer 3 accounting application; hosts custom TM470 Scrum extension with programmatic task bounties. |
+| **Software / Daemons** | Layer 1 Blockchain | Bitcoin Core (`bitcoind`, v27.x, C++ daemon) | Private regtest consensus node; mines 101 blocks for coinbase maturity. |
+| **Software / Daemons** | Layer 2 Network | Core Lightning (`lightningd`, v24.x, C daemon) | Off-chain payment routing daemon; connects to Bitcoin Core via JSON-RPC. |
+| **Software / PKG** | Python Packaging Tool | Astral `uv` | High-performance Python resolver integrated hermetically into Nix derivation shells. |
+| **Skills / Competencies** | Declarative Systems Programming | Functional Nix Flake syntax, derivation authoring, store path closures | Essential for constructing reproducible, multi-platform build declarations without ambient host drift. |
+| **Skills / Competencies** | POSIX Systems Programming | Shell scripting, process supervisors, POSIX traps (`EXIT`, `INT`, `TERM`) | Designed automated lifecycle daemons (`bootstrap.sh`, `run_lab.sh`, `verify_artefact.sh`) with clean teardown. |
+| **Skills / Competencies** | Applied Cryptography & Consensus | Elliptic curve mathematics (`secp256k1`), HTLC contracts, blockchain regtest | Configured decentralized consensus parameters, Layer 2 payment channels, and cryptographic libraries. |
+| **Skills / Competencies** | Instructional Design | Cognitive Load Theory (Sweller), self-instruction (Rowntree), WCAG 2.1 AA | Translated dense systems engineering into modular, accessible, formative student learning units. |
+| **Personnel** | Lead Architect & Author | Andre de Amorim (Student, PI: A5624864) | Accountable author, systems engineer, product owner, and primary researcher. |
+| **Personnel** | Academic Supervisor & Consultant | Dr. Bill Tait (Module Tutor, Open University) | Formative academic guidance, external quality assurance, BCS accreditation alignment. |
 
 ## References
 
@@ -701,91 +757,3 @@ Poon, J. and Dryja, T. (2016) 'The Bitcoin Lightning Network: Scalable Off-Chain
 Sweller, J. (1988) 'Cognitive Technology: Some Procedures for Facilitating Learning and Problem Solving in Mathematics and Science', Journal of Educational Psychology, 80(4), pp. 257–266.
 
 The Open University (2020) TM353 Managing IT: Systems and System Failures, Milton Keynes, The Open University.
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
