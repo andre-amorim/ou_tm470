@@ -217,7 +217,7 @@ Fourth, pedagogical instructional design was cultivated by studying The Open Uni
 
 To maintain professional software governance, human and consultative roles were formally allocated: The student acted as Lead Systems Architect, Primary Developer, and Product Owner, maintaining ultimate accountability for architectural design, code authoring, and empirical validation. Dr. Bill Tait (Module Tutor) served as Academic Supervisor and External Quality Consultant, providing formative feedback during TMA milestones, challenging project assumptions, and evaluating alignment with BCS accreditation benchmarks and university marking rubrics.
 
-A comprehensive, tabular inventory of all project resources, software versions, and hardware specifications is detailed in Appendix C.
+By systematically documenting hardware baselines (Section 4.2.1), declarative software stacks (Section 4.2.2), competency matrices (Section 4.2.3), and governance roles (Section 4.2.4), this self-contained audit fulfills the criteria for LO3 (Resources and Skills) and guarantees transparent operational repeatability.
 
 ---
 
