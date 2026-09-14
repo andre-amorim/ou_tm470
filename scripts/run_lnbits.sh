@@ -38,13 +38,13 @@ export LNBITS_SITE_TITLE="nixB Didactic Lab"
 
 # Auto-complete first_install setup in background once LNbits starts
 (
-    for i in {1..30}; do
-        if curl -s -f "http://$HOST:$PORT/scrum/api/v1/health" >/dev/null 2>&1; then
+    for i in {1..60}; do
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X PUT "http://$HOST:$PORT/api/v1/auth/first_install" \
+             -H "Content-Type: application/json" \
+             -d '{"username":"admin","password":"TM470NixB","password_repeat":"TM470NixB"}' 2>/dev/null || echo "000")
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "403" ] || [ "$HTTP_CODE" = "400" ]; then
             break
         fi
-        curl -s -X PUT "http://$HOST:$PORT/api/v1/auth/first_install" \
-             -H "Content-Type: application/json" \
-             -d '{"username":"admin","password":"TM470NixB","password_repeat":"TM470NixB"}' >/dev/null 2>&1 || true
         sleep 1
     done
 ) &

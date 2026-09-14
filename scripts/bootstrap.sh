@@ -53,8 +53,16 @@ PIDS+=($!)
 "$REPO_ROOT/scripts/run_oer.sh" &
 PIDS+=($!)
 
-# Give servers time to bind ports
-sleep 8
+# Give servers time to bind ports and verify services are healthy
+echo "Waiting for services to initialize..."
+for i in {1..60}; do
+    if curl -s "http://127.0.0.1:5000/scrum/api/v1/health" 2>/dev/null | grep -q '"status":"ok"'; then
+        if curl -s -f "http://127.0.0.1:8080" >/dev/null 2>&1; then
+            break
+        fi
+    fi
+    sleep 1
+done
 
 clear || true
 
