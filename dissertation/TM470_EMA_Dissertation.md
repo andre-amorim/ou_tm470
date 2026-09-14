@@ -203,7 +203,7 @@ Rather than relying on mutable host package managers (`apt`, `brew`) that introd
 1. **Operating System and Container Abstraction:** Nix (version 2.24+) with pure evaluation Flakes enabled, providing purely functional dependency resolution and cryptographic store isolation.  
 2. **Pedagogical Delivery and Documentation Server:** Caddy Web Server (version 2.8+) configured as an embedded, zero-configuration HTTP server bound to loopback port 8080, and Google Codelabs Command-Line Tool (`claat`) for compiling pedagogical Markdown into responsive, multi-step web tutorials.  
 3. **Application and Accounting Layer:** LNbits (FastAPI / Starlette asynchronous backend, Quasar Framework Vue.js frontend, and Uvicorn ASGI server), pinned to a deterministic commit baseline, utilizing the Astral `uv` toolchain for fast, reproducible Python packaging.  
-4. **Decentralised Protocol Daemons:** Bitcoin Core (`bitcoind`, version 27.x) compiled as a headless C++ daemon in private regression testing mode (`regtest`), and Core Lightning (`lightningd`, version 24.x) compiled from C source, executing off-chain payment channel state updates via local Unix domain sockets.  
+4. **Decentralised Protocol Daemons:** Bitcoin Core (`bitcoind`, version 31.x / v31.1.0) compiled as a headless C++ daemon in private regression testing mode (`regtest`), and Core Lightning (`lightningd`, version 26.x / v26.04.1) compiled from C source, executing off-chain payment channel state updates via local Unix domain sockets.  
 5. **Knowledge Management and Task Governance:** Obsidian (v1.6+) operating over an Open Knowledge Format (OKF v0.2) plain-text vault, providing local Markdown persistence, bidirectional hyperlinking, and Kanban task scheduling.
 
 #### 4.2.3 Specialized Skills and Competency Matrix
@@ -692,13 +692,13 @@ To fulfill the rigorous audit requirements of LO3 (Identification of Resources a
 | :--- | :--- | :--- | :--- |
 | **Hardware** | Primary Compute Node | Apple MacBook Air (Apple M-series, 16 GB RAM, macOS Darwin ARM64) | Primary development workstation, high-intensity derivations, central knowledge vault. |
 | **Hardware** | Low-Resource Evaluation Platform | Lenovo IdeaPad Slim 3 Chromebook (MediaTek Kompanio 520, 8 GB RAM, Debian Linux ARM64) | Realistic student hardware baseline, proving low-resource accessibility (LO10) and multi-OS determinism (LO11). |
-| **Software / IaC** | Package Manager | Nix (v2.24+) with pure evaluation Flakes enabled | Core Infrastructure-as-Code engine; enforces cryptographic store isolation and pure builds. |
-| **Software / Web** | Documentation Server | Caddy Web Server (v2.8+) | Zero-configuration HTTP server bound to loopback port 8080 for local, offline OER delivery. |
+| **Software / IaC** | Package Manager | Nix (v2.24+ / v2.31.3) with pure evaluation Flakes enabled | Core Infrastructure-as-Code engine; enforces cryptographic store isolation and pure builds. |
+| **Software / Web** | Documentation Server | Caddy Web Server (v2.7.6 / v2.8+) | Zero-configuration HTTP server bound to loopback port 8080 for local, offline OER delivery. |
 | **Software / OER** | Courseware Compiler | Google Codelabs CLI (`claat`) | Compiles modular Markdown into responsive, accessible, WCAG 2.1 AA-compliant courseware. |
 | **Software / App** | Web Application Platform | LNbits (v1.5.4 pinned, FastAPI, Quasar/Vue 3, Uvicorn) | Sovereign Layer 3 accounting application; hosts custom TM470 Scrum extension with programmatic task bounties. |
-| **Software / Daemons** | Layer 1 Blockchain | Bitcoin Core (`bitcoind`, v27.x, C++ daemon) | Private regtest consensus node; mines 101 blocks for coinbase maturity. |
-| **Software / Daemons** | Layer 2 Network | Core Lightning (`lightningd`, v24.x, C daemon) | Off-chain payment routing daemon; connects to Bitcoin Core via JSON-RPC. |
-| **Software / PKG** | Python Packaging Tool | Astral `uv` | High-performance Python resolver integrated hermetically into Nix derivation shells. |
+| **Software / Daemons** | Layer 1 Blockchain | Bitcoin Core (`bitcoind`, v31.1.0, C++ daemon) | Private regtest consensus node; mines 101 blocks for coinbase maturity. |
+| **Software / Daemons** | Layer 2 Network | Core Lightning (`lightningd`, v26.04.1, C daemon) | Off-chain payment routing daemon; connects to Bitcoin Core via JSON-RPC. |
+| **Software / PKG** | Python Packaging Tool | Astral `uv` (v0.12.5) | High-performance Python resolver integrated hermetically into Nix derivation shells. |
 | **Skills / Competencies** | Declarative Systems Programming | Functional Nix Flake syntax, derivation authoring, store path closures | Essential for constructing reproducible, multi-platform build declarations without ambient host drift. |
 | **Skills / Competencies** | POSIX Systems Programming | Shell scripting, process supervisors, POSIX traps (`EXIT`, `INT`, `TERM`) | Designed automated lifecycle daemons (`bootstrap.sh`, `run_lab.sh`, `verify_artefact.sh`) with clean teardown. |
 | **Skills / Competencies** | Applied Cryptography & Consensus | Elliptic curve mathematics (`secp256k1`), HTLC contracts, blockchain regtest | Configured decentralized consensus parameters, Layer 2 payment channels, and cryptographic libraries. |
