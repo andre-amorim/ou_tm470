@@ -29,5 +29,11 @@ if [ -d "$OER_SRC/img" ]; then
     cp -r "$OER_SRC/img/"* "$CODELAB_OUT/img/"
 fi
 
+if [ -d "$OER_SRC/vendor" ]; then
+    echo "📦 [nixB OER] Staging vendor assets to $CODELAB_OUT/vendor ..."
+    mkdir -p "$CODELAB_OUT/vendor"
+    cp -r "$OER_SRC/vendor/"* "$CODELAB_OUT/vendor/"
+fi
+
 echo "🌐 [nixB OER] Starting Caddy Server on http://localhost:8080 ..."
 exec caddy file-server --root "$CODELAB_OUT" --listen :8080

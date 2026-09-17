@@ -22,7 +22,7 @@ the License.
   <title>{{.Meta.Title}}</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="{{.Prefix}}/claat-public/codelab-elements.css">
+  <link rel="stylesheet" href="./vendor/codelab-elements.css">
   <style>
     .success {
       color: #1e8e3e;
@@ -355,11 +355,10 @@ the License.
     {{end}}{{end}}
   </google-codelab>
 
-  <script src="{{.Prefix}}/claat-public/native-shim.js"></script>
-  <script src="{{.Prefix}}/claat-public/custom-elements.min.js"></script>
-  <script src="{{.Prefix}}/claat-public/prettify.js"></script>
-  <script src="{{.Prefix}}/claat-public/codelab-elements.js"></script>
-  <script src="//support.google.com/inapp/api.js"></script>
+  <script src="./vendor/native-shim.js"></script>
+  <script src="./vendor/custom-elements.min.js"></script>
+  <script src="./vendor/prettify.js"></script>
+  <script src="./vendor/codelab-elements.js"></script>
 
   <script>
     // nixB UI Enhancer: Inject Floating Copy Buttons & Click-and-Check Quizzes
